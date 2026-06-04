@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local preview screenshots (not part of the site)
+/public/hero-*.png
+
+# editor / tooling
+.cursor/
+
+# build output alt
+/dist
