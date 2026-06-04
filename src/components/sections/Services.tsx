@@ -22,9 +22,9 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28">
+    <section id="services" className="py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-14 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-20 lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-16 lg:items-start">
           <div className="flex flex-col gap-5">
             <EyebrowBadge>Our services</EyebrowBadge>
             <h2 className="text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-[2.75rem]">

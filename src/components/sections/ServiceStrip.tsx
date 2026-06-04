@@ -8,9 +8,9 @@ const serviceItems = [
 
 export function ServiceStrip() {
   return (
-    <section className="border-y border-white/[0.04] py-14">
+    <section className="border-y border-white/[0.04] py-10 lg:py-11">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <p className="mb-10 text-center text-[11px] font-medium tracking-[0.22em] text-zinc-400 uppercase">
+        <p className="mb-7 text-center text-[11px] font-medium tracking-[0.22em] text-zinc-400 uppercase">
           DIGITAL SERVICES FOR MODERN BUSINESSES
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:justify-between md:gap-x-6">

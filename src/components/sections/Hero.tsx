@@ -23,7 +23,7 @@ const features = [
 export function Hero() {
   return (
     <section className="relative isolate overflow-x-hidden">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 px-6 py-14 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.18fr)] xl:items-end xl:gap-5 xl:px-8 xl:py-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 px-6 py-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.18fr)] xl:items-end xl:gap-5 xl:px-8 xl:py-16">
         <div className="relative z-10 mx-auto flex w-full max-w-2xl flex-col gap-7 xl:mx-0 xl:max-w-none xl:pb-[4.5rem] xl:pt-2">
           <EyebrowBadge>We build digital experiences</EyebrowBadge>
 
@@ -47,7 +47,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <ul className="mt-2 flex flex-col gap-8 sm:flex-row sm:gap-10 lg:gap-12">
+          <ul className="mt-2 flex flex-col gap-5 sm:flex-row sm:gap-10 lg:gap-12">
             {features.map(({ icon: Icon, title, subtitle }) => (
               <li key={title} className="flex flex-col gap-1.5">
                 <Icon className="h-5 w-5 text-[#8b5cf6]" />

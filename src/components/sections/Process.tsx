@@ -29,7 +29,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="scroll-mt-24 py-20 lg:py-28">
+    <section id="process" className="scroll-mt-24 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
           <EyebrowBadge>Our process</EyebrowBadge>
@@ -44,7 +44,7 @@ export function Process() {
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
           {steps.map(({ number, title, description }) => (
             <li
               key={number}
