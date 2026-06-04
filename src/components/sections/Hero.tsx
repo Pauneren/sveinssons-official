@@ -52,7 +52,7 @@ export function Hero() {
               <li key={title} className="flex flex-col gap-1.5">
                 <Icon className="h-5 w-5 text-[#8b5cf6]" />
                 <span className="text-sm font-semibold text-zinc-100">{title}</span>
-                <span className="text-xs text-zinc-500">{subtitle}</span>
+                <span className="text-xs text-white/55">{subtitle}</span>
               </li>
             ))}
           </ul>
