@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
-import { TrustLogos } from "@/components/sections/TrustLogos";
+import { ServiceStrip } from "@/components/sections/ServiceStrip";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <TrustLogos />
+        <ServiceStrip />
         <Services />
       </main>
     </div>

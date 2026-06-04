@@ -42,57 +42,40 @@ body {
     radial-gradient(ellipse 60% 40% at 90% 20%, rgba(59, 130, 246, 0.08), transparent);
 }
 
-/* —— Hero device reference image —— */
+/* —— Hero device visual (desktop xl+ only; visibility via Hero wrapper) —— */
 
 .hero-device-visual {
   position: relative;
   width: 100%;
-  margin-inline: auto;
-  padding: 1rem 0 1.5rem;
+  margin-left: -1.25rem;
+  margin-right: -0.5rem;
+  padding: 0.25rem 0 0;
+  padding-bottom: 2.5rem;
 }
 
-@media (min-width: 1024px) {
-  .hero-device-visual {
-    margin-left: -2rem;
-    margin-right: -0.5rem;
-    padding: 0.25rem 0 0;
-  }
-}
-
-.hero-device-visual-glow {
+.hero-device-wide-glow {
   position: absolute;
-  inset: 5% 0 8% 10%;
+  inset: 10% 0 12% 6%;
   background: radial-gradient(
-    ellipse 65% 55% at 55% 50%,
-    rgba(124, 58, 237, 0.2) 0%,
-    rgba(59, 130, 246, 0.08) 45%,
-    transparent 70%
+    ellipse 68% 58% at 52% 52%,
+    rgba(124, 58, 237, 0.24) 0%,
+    rgba(59, 130, 246, 0.1) 42%,
+    transparent 72%
   );
   pointer-events: none;
 }
 
-.hero-device-visual-img {
+.hero-device-wide-img {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   display: block;
+  width: 112%;
+  max-width: none;
   height: auto;
-  width: 100%;
-  max-width: 42rem;
-  margin-inline: auto;
+  margin-left: -6%;
   object-fit: contain;
-  object-position: center bottom;
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
-  transform: translateY(-70px) scale(1.2);
-  transform-origin: center bottom;
-}
-
-@media (min-width: 1024px) {
-  .hero-device-visual-img {
-    max-width: none;
-    width: 100%;
-    margin-inline: 0;
-    object-position: left bottom;
-    transform: translateY(calc(1.5rem - 70px)) scale(1.2);
-    transform-origin: left bottom;
-  }
+  object-position: 44% 100%;
+  filter: drop-shadow(0 28px 52px rgba(0, 0, 0, 0.5));
+  transform: translateY(calc(0.5rem - 30px)) scale(0.94);
+  transform-origin: 44% 100%;
 }

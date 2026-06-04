@@ -1,4 +1,4 @@
-import { CodeIcon, LightningIcon, SmartphoneIcon } from "@/components/icons";
+import { LayoutIcon, LightningIcon, SmartphoneIcon } from "@/components/icons";
 import { HeroDeviceMockup } from "@/components/sections/HeroDeviceMockup";
 import { Button, EyebrowBadge } from "@/components/ui/Button";
 
@@ -6,12 +6,12 @@ const features = [
   {
     icon: LightningIcon,
     title: "Fast Delivery",
-    subtitle: "On-time, every time",
+    subtitle: "Clear timelines and reliable delivery",
   },
   {
-    icon: CodeIcon,
-    title: "Clean Code",
-    subtitle: "Built for performance",
+    icon: LayoutIcon,
+    title: "Custom Built",
+    subtitle: "Designed specifically for your brand",
   },
   {
     icon: SmartphoneIcon,
@@ -22,9 +22,9 @@ const features = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-x-hidden">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[1fr_1.05fr] lg:items-end lg:gap-6 lg:px-8 lg:py-14 xl:py-20">
-        <div className="flex flex-col gap-7 lg:pb-20 lg:pt-2">
+    <section className="relative isolate overflow-x-hidden">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 px-6 py-14 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.18fr)] xl:items-end xl:gap-5 xl:px-8 xl:py-20">
+        <div className="relative z-10 mx-auto flex w-full max-w-2xl flex-col gap-7 xl:mx-0 xl:max-w-none xl:pb-[4.5rem] xl:pt-2">
           <EyebrowBadge>We build digital experiences</EyebrowBadge>
 
           <h1 className="text-[2.5rem] font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.5rem]">
@@ -34,8 +34,8 @@ export function Hero() {
           </h1>
 
           <p className="max-w-xl text-base leading-relaxed text-zinc-400 sm:text-[1.05rem]">
-            Sveinssons builds fast, modern, and responsive websites that help your
-            business stand out and grow online.
+            Sveinssons designs and develops custom websites and online stores built
+            around your business — never generic, one-size-fits-all templates.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -58,7 +58,9 @@ export function Hero() {
           </ul>
         </div>
 
-        <HeroDeviceMockup />
+        <div className="hidden min-w-0 xl:block">
+          <HeroDeviceMockup />
+        </div>
       </div>
     </section>
   );

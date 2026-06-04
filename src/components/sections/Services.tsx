@@ -32,6 +32,10 @@ export function Services() {
               <br />
               for <span className="text-gradient">Your Business</span>
             </h2>
+            <p className="text-sm leading-relaxed text-zinc-400 sm:text-base">
+              Every website is thoughtfully designed and developed for the individual
+              business, with a unique structure, visual identity, and user experience.
+            </p>
           </div>
 
           <ul className="grid gap-5 md:grid-cols-3">

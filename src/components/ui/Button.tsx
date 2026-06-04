@@ -6,6 +6,7 @@ type ButtonProps = {
   href?: string;
   showArrow?: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
 export function Button({
@@ -14,6 +15,7 @@ export function Button({
   href = "#",
   showArrow = false,
   className = "",
+  onClick,
 }: ButtonProps) {
   const base =
     "inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-opacity hover:opacity-90";
@@ -23,7 +25,7 @@ export function Button({
       : `${base} border border-white/15 bg-transparent text-foreground`;
 
   return (
-    <a href={href} className={`${styles} ${className}`}>
+    <a href={href} onClick={onClick} className={`${styles} ${className}`}>
       {children}
       {showArrow && <ArrowRightIcon />}
     </a>
