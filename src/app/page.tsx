@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
+import { Process } from "@/components/sections/Process";
 import { Services } from "@/components/sections/Services";
 import { ServiceStrip } from "@/components/sections/ServiceStrip";
 
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <ServiceStrip />
         <Services />
+        <Process />
       </main>
     </div>
   );
