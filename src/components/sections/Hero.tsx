@@ -39,7 +39,7 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <Button href="#quote" showArrow>
+            <Button href="#contact" showArrow>
               Get a Free Quote
             </Button>
             <Button href="#work" variant="secondary">

@@ -61,7 +61,7 @@ export function Header() {
 
         <div className="relative z-10 flex shrink-0 items-center gap-3">
           <div className="hidden xl:block">
-            <Button href="#quote" showArrow>
+            <Button href="#contact" showArrow>
               Get a Free Quote
             </Button>
           </div>
@@ -123,7 +123,7 @@ export function Header() {
             </a>
           ))}
           <Button
-            href="#quote"
+            href="#contact"
             showArrow
             onClick={() => setOpen(false)}
             className="mt-3 w-full"

@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
 import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
@@ -15,6 +16,7 @@ export default function Home() {
         <Services />
         <Process />
         <Pricing />
+        <Contact />
       </main>
     </div>
   );

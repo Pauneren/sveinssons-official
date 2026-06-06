@@ -102,7 +102,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
           </li>
         ))}
       </ul>
-      <Button href="#quote" className="mt-auto w-full">
+      <Button href="#contact" className="mt-auto w-full">
         Request a Quote
       </Button>
     </div>
@@ -154,7 +154,7 @@ export function Pricing() {
             Portfolios, bilingual websites, booking features, integrations, maintenance plans,
             and larger custom projects are quoted according to scope.
           </p>
-          <Button href="#quote" variant="secondary" className="mt-6">
+          <Button href="#contact" variant="secondary" className="mt-6">
             Discuss Your Project
           </Button>
         </div>
