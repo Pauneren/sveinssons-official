@@ -5,6 +5,7 @@ import { Pricing } from "@/components/sections/Pricing";
 import { Process } from "@/components/sections/Process";
 import { Services } from "@/components/sections/Services";
 import { ServiceStrip } from "@/components/sections/ServiceStrip";
+import { Work } from "@/components/sections/Work";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <ServiceStrip />
         <Services />
+        <Work />
         <Process />
         <Pricing />
         <Contact />
