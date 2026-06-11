@@ -60,8 +60,7 @@ const en = {
   },
   work: {
     eyebrow: "Our work",
-    titleLine1: "Recent Work,",
-    titleHighlight: "Crafted with Care",
+    titleLine1: "Recent Work",
     description:
       "A selection of projects is on the way. Check back soon to see what we've been building.",
     cardTitle: "Coming Soon",
@@ -345,8 +344,7 @@ const es: Translations = {
   },
   work: {
     eyebrow: "Nuestro trabajo",
-    titleLine1: "Trabajo Reciente,",
-    titleHighlight: "Hecho con Cuidado",
+    titleLine1: "Trabajo Reciente",
     description:
       "Una selección de proyectos está en camino. Vuelve pronto para ver lo que hemos estado construyendo.",
     cardTitle: "Próximamente",
@@ -621,8 +619,7 @@ const is: Translations = {
   },
   work: {
     eyebrow: "Verkin okkar",
-    titleLine1: "Nýleg Verk,",
-    titleHighlight: "Unnin af Alúð",
+    titleLine1: "Nýleg Verk",
     description:
       "Úrval verkefna er á leiðinni. Líttu við fljótlega til að sjá hvað við höfum verið að byggja.",
     cardTitle: "Væntanlegt",

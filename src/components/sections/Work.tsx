@@ -18,8 +18,6 @@ export function Work() {
           <EyebrowBadge>{t.work.eyebrow}</EyebrowBadge>
           <h2 className="text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-[2.75rem]">
             {t.work.titleLine1}
-            <br />
-            <span className="text-gradient">{t.work.titleHighlight}</span>
           </h2>
           <p className="text-sm leading-relaxed text-zinc-400 sm:text-base">
             {t.work.description}
