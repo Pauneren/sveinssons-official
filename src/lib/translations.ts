@@ -72,6 +72,16 @@ const en = {
         description:
           "Psychology practice website. Warm gradient design, Spanish language, services for adolescents, adults and couples, in-person and online.",
         liveUrl: "https://travesiainternapsicologia.com",
+        image: "/images/website1.png",
+        tags: ["Psychology", "Spanish", "Responsive"],
+      },
+      {
+        title: "Dr. Nicolás Capdevila",
+        description:
+          "Medical website for an integrative medicine and pain-management doctor, designed to present services clearly and guide patients toward appointment enquiries.",
+        liveUrl: "https://drnicolascapdevila.netlify.app/",
+        image: "/images/website2.png",
+        tags: ["Medical", "Spanish", "Responsive"],
       },
     ],
   },
@@ -356,6 +366,16 @@ const es: Translations = {
         description:
           "Sitio web de consulta de psicología. Diseño con degradado cálido, en español, servicios para adolescentes, adultos y parejas, presenciales y en línea.",
         liveUrl: "https://travesiainternapsicologia.com",
+        image: "/images/website1.png",
+        tags: ["Psicología", "Español", "Adaptable"],
+      },
+      {
+        title: "Dr. Nicolás Capdevila",
+        description:
+          "Sitio web médico para un especialista en medicina integrativa y manejo del dolor, diseñado para presentar los servicios con claridad y guiar a los pacientes hacia consultas de cita.",
+        liveUrl: "https://drnicolascapdevila.netlify.app/",
+        image: "/images/website2.png",
+        tags: ["Médico", "Español", "Adaptable"],
       },
     ],
   },
@@ -631,6 +651,16 @@ const is: Translations = {
         description:
           "Vefsíða fyrir sálfræðistofu. Hlý litaskiptahönnun, á spænsku, þjónusta fyrir unglinga, fullorðna og pör, í eigin persónu og á netinu.",
         liveUrl: "https://travesiainternapsicologia.com",
+        image: "/images/website1.png",
+        tags: ["Sálfræði", "Spænska", "Skalanleg"],
+      },
+      {
+        title: "Dr. Nicolás Capdevila",
+        description:
+          "Vefsíða fyrir lækni í samþættri læknisfræði og verkjameðferð, hönnuð til að kynna þjónustu skýrt og leiða notendur að fyrirspurnum um tíma.",
+        liveUrl: "https://drnicolascapdevila.netlify.app/",
+        image: "/images/website2.png",
+        tags: ["Læknisfræði", "Spænska", "Skalanleg"],
       },
     ],
   },
