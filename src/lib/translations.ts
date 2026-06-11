@@ -9,6 +9,7 @@ const en = {
     services: "Services",
     work: "Work",
     about: "About",
+    contact: "Contact",
     process: "Process",
     pricing: "Pricing",
     faq: "FAQ",
@@ -34,6 +35,18 @@ const en = {
   serviceStrip: {
     heading: "DIGITAL SERVICES FOR MODERN BUSINESSES",
     items: ["CUSTOM WEBSITES", "ONLINE STORES", "PORTFOLIOS", "LANDING PAGES", "MAINTENANCE"],
+  },
+  about: {
+    eyebrow: "About us",
+    titleLead: "Websites that help your business ",
+    titleHighlight: "look professional and grow.",
+    body:
+      "Sveinssons helps small businesses, professionals, and creators build clean, fast, and trustworthy websites that are easy to use and easy to grow.",
+    points: [
+      "Custom design, not generic templates",
+      "Mobile-first and performance-focused",
+      "Clear structure, strong UX, and honest communication",
+    ],
   },
   services: {
     eyebrow: "Our services",
@@ -297,6 +310,7 @@ const es: Translations = {
     services: "Servicios",
     work: "Proyectos",
     about: "Nosotros",
+    contact: "Contacto",
     process: "Proceso",
     pricing: "Precios",
     faq: "Preguntas",
@@ -327,6 +341,18 @@ const es: Translations = {
       "PORTAFOLIOS",
       "PÁGINAS DE ATERRIZAJE",
       "MANTENIMIENTO",
+    ],
+  },
+  about: {
+    eyebrow: "Sobre nosotros",
+    titleLead: "Sitios web creados con ",
+    titleHighlight: "cuidado, claridad y propósito.",
+    body:
+      "Sveinssons ayuda a pequeñas empresas, profesionales y creadores a construir sitios web limpios, rápidos y confiables, fáciles de usar y de hacer crecer.",
+    points: [
+      "Diseño a medida, no plantillas genéricas",
+      "Mobile-first y enfocado en el rendimiento",
+      "Estructura clara, buena UX y comunicación honesta",
     ],
   },
   services: {
@@ -589,6 +615,7 @@ const is: Translations = {
     services: "Þjónusta",
     work: "Verk",
     about: "Um okkur",
+    contact: "Hafa samband",
     process: "Ferli",
     pricing: "Verð",
     faq: "Spurningar",
@@ -614,6 +641,18 @@ const is: Translations = {
   serviceStrip: {
     heading: "STAFRÆN ÞJÓNUSTA FYRIR NÚTÍMA FYRIRTÆKI",
     items: ["SÉRSNIÐNAR VEFSÍÐUR", "NETVERSLANIR", "VERKASÖFN", "LENDINGARSÍÐUR", "VIÐHALD"],
+  },
+  about: {
+    eyebrow: "Um okkur",
+    titleLead: "Vefsíður byggðar af ",
+    titleHighlight: "alúð, skýrleika og tilgangi.",
+    body:
+      "Sveinssons hjálpar litlum fyrirtækjum, fagfólki og skapandi fólki að byggja hreinar, hraðar og traustar vefsíður sem auðvelt er að nota og láta vaxa.",
+    points: [
+      "Sérsniðin hönnun, ekki almenn sniðmát",
+      "Farsímavæn og með áherslu á afköst",
+      "Skýr uppbygging, sterk notendaupplifun og heiðarleg samskipti",
+    ],
   },
   services: {
     eyebrow: "Þjónustan okkar",

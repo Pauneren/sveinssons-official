@@ -4,15 +4,16 @@ import { useEffect, useState } from "react";
 
 import { LogoMark } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { useLanguage } from "@/context/LanguageContext";
+import type { Translations } from "@/lib/translations";
 
-const navItems = [
-  { label: "Home", href: "#", active: true },
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+const navItemsConfig: { key: keyof Translations["nav"]; href: string; active?: boolean }[] = [
+  { key: "home", href: "#", active: true },
+  { key: "about", href: "#about" },
+  { key: "services", href: "#services" },
+  { key: "work", href: "#work" },
+  { key: "contact", href: "#contact" },
 ];
 
 const barBase =
@@ -20,6 +21,8 @@ const barBase =
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
+  const navItems = navItemsConfig.map((item) => ({ ...item, label: t.nav[item.key] }));
 
   useEffect(() => {
     if (!open) return;
@@ -46,7 +49,7 @@ export function Header() {
         >
           {navItems.map((item) => (
             <a
-              key={item.label}
+              key={item.key}
               href={item.href}
               className={
                 item.active
@@ -61,15 +64,18 @@ export function Header() {
 
         <div className="relative z-10 flex shrink-0 items-center gap-3">
           <div className="hidden xl:block">
+            <LanguageToggle />
+          </div>
+          <div className="hidden xl:block">
             <Button href="#contact" showArrow>
-              Get a Free Quote
+              {t.nav.cta}
             </Button>
           </div>
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
             className="inline-flex items-center justify-center rounded-full border border-white/10 p-2.5 text-zinc-200 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c3aed] xl:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={open}
             aria-controls="mobile-menu"
           >
@@ -109,7 +115,7 @@ export function Header() {
         >
           {navItems.map((item) => (
             <a
-              key={item.label}
+              key={item.key}
               href={item.href}
               onClick={() => setOpen(false)}
               tabIndex={open ? 0 : -1}
@@ -122,13 +128,16 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <div className="px-3 py-3">
+            <LanguageToggle />
+          </div>
           <Button
             href="#contact"
             showArrow
             onClick={() => setOpen(false)}
             className="mt-3 w-full"
           >
-            Get a Free Quote
+            {t.nav.cta}
           </Button>
         </nav>
       </div>
