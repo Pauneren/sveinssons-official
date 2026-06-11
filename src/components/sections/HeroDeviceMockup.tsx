@@ -15,6 +15,7 @@ export function HeroDeviceMockup() {
         className="hero-device-wide-img"
         sizes="(min-width: 1280px) 52vw, 0px"
       />
+      <div className="absolute inset-0 bg-black/15 rounded-[inherit] pointer-events-none z-10" />
     </div>
   );
 }

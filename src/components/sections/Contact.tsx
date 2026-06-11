@@ -1,7 +1,10 @@
-import { EyebrowBadge } from "@/components/ui/Button";
+"use client";
 
-const TALLY_EMBED_URL =
-  "https://tally.so/embed/gDzZgl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+import { useState, type FormEvent } from "react";
+
+import { sendEmail } from "@/app/actions/sendEmail";
+import { EyebrowBadge } from "@/components/ui/Button";
+import { useLanguage } from "@/context/LanguageContext";
 
 const services = [
   "Custom websites",
@@ -10,6 +13,10 @@ const services = [
   "Landing pages",
   "Maintenance and updates",
 ] as const;
+
+const fieldClass =
+  "w-full rounded-xl border border-white/10 bg-[#050508] px-4 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 transition-colors focus:border-[#7c3aed]/50 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]/25";
+const labelClass = "text-sm font-medium text-zinc-200";
 
 function CheckIcon() {
   return (
@@ -27,6 +34,212 @@ function CheckIcon() {
         strokeLinejoin="round"
       />
     </svg>
+  );
+}
+
+function Field({
+  id,
+  label,
+  required,
+  children,
+}: {
+  id: string;
+  label: string;
+  required?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-2">
+      <label htmlFor={id} className={labelClass}>
+        {label}
+        {required ? <span className="text-[#a78bfa]"> *</span> : null}
+      </label>
+      {children}
+    </div>
+  );
+}
+
+function QuoteForm() {
+  const { t } = useLanguage();
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setStatus("submitting");
+
+    const result = await sendEmail(new FormData(form));
+
+    if (result.success) {
+      form.reset();
+      setStatus("success");
+    } else {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div
+        className="flex flex-col gap-3 rounded-xl border border-[#7c3aed]/30 bg-[#7c3aed]/10 px-5 py-6"
+        role="status"
+      >
+        <p className="text-base font-semibold text-zinc-100">{t.form.successTitle}</p>
+        <p className="text-sm leading-relaxed text-zinc-300">{t.form.successBody}</p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-2 w-fit text-sm font-medium text-[#a78bfa] transition-colors hover:text-[#c4b5fd]"
+        >
+          {t.form.sendAnother}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
+      <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden>
+        <label htmlFor="companyWebsite">{t.form.companyWebsiteLabel}</label>
+        <input
+          id="companyWebsite"
+          name="companyWebsite"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field id="name" label={t.form.nameLabel} required>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            maxLength={100}
+            className={fieldClass}
+            placeholder={t.form.namePlaceholder}
+          />
+        </Field>
+        <Field id="email" label={t.form.emailLabel} required>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            maxLength={254}
+            className={fieldClass}
+            placeholder="you@example.com"
+          />
+        </Field>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field id="phone" label={t.form.phoneLabel}>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            maxLength={30}
+            className={fieldClass}
+            placeholder="+354 ..."
+          />
+        </Field>
+        <Field id="businessName" label={t.form.businessNameLabel}>
+          <input
+            id="businessName"
+            name="businessName"
+            type="text"
+            autoComplete="organization"
+            maxLength={120}
+            className={fieldClass}
+            placeholder={t.form.optionalPlaceholder}
+          />
+        </Field>
+      </div>
+
+      <Field id="projectType" label={t.form.projectTypeLabel} required>
+        <select id="projectType" name="projectType" required defaultValue="" className={fieldClass}>
+          <option value="" disabled>
+            {t.form.projectTypePlaceholder}
+          </option>
+          {t.form.projectTypes.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </Field>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field id="language" label={t.form.languageLabel}>
+          <select id="language" name="language" defaultValue="" className={fieldClass}>
+            <option value="">{t.form.optionalPlaceholder}</option>
+            {t.form.languages.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field id="timeline" label={t.form.timelineLabel}>
+          <select id="timeline" name="timeline" defaultValue="" className={fieldClass}>
+            <option value="">{t.form.optionalPlaceholder}</option>
+            {t.form.timelines.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </Field>
+      </div>
+
+      <Field id="budgetRange" label={t.form.budgetRangeLabel}>
+        <select id="budgetRange" name="budgetRange" defaultValue="" className={fieldClass}>
+          <option value="">{t.form.optionalPlaceholder}</option>
+          {t.form.budgetRanges.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </Field>
+
+      <Field id="projectDetails" label={t.form.projectDetailsLabel} required>
+        <textarea
+          id="projectDetails"
+          name="projectDetails"
+          required
+          rows={5}
+          maxLength={5000}
+          className={`${fieldClass} min-h-[120px] resize-y`}
+          placeholder={t.form.projectDetailsPlaceholder}
+        />
+      </Field>
+
+      {status === "error" ? (
+        <p
+          className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200"
+          role="alert"
+        >
+          {t.form.genericError}
+        </p>
+      ) : null}
+
+      <button
+        type="submit"
+        disabled={status === "submitting"}
+        className="inline-flex w-full items-center justify-center rounded-full bg-gradient-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(124,58,237,0.25)] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+      >
+        {status === "submitting" ? t.form.submitting : t.form.submit}
+      </button>
+
+      <p className="text-xs leading-relaxed text-white/45">{t.form.consent}</p>
+    </form>
   );
 }
 
@@ -73,15 +286,7 @@ export function Contact() {
               Fill out the form and we&apos;ll review your project details before suggesting the
               best next step.
             </p>
-            <div className="min-h-[520px] w-full max-w-full overflow-hidden rounded-xl sm:min-h-[560px]">
-              <iframe
-                src={TALLY_EMBED_URL}
-                title="Website project request form"
-                className="h-full min-h-[520px] w-full max-w-full border-0 sm:min-h-[560px]"
-                loading="lazy"
-                allow="fullscreen"
-              />
-            </div>
+            <QuoteForm />
             <p className="text-xs leading-relaxed text-white/50 sm:text-sm">
               Your information is used only to respond to your project request.
             </p>
