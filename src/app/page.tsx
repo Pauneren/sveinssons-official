@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
@@ -22,6 +23,7 @@ export default function Home() {
         <Pricing />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }

@@ -295,6 +295,11 @@ const en = {
       { value: "Not sure yet", label: "Not sure yet" },
     ],
   },
+  footer: {
+    description: "Custom websites and online stores, designed and developed in Iceland.",
+    quickLinks: "Quick links",
+    rights: "All rights reserved.",
+  },
 };
 
 export type Translations = typeof en;
@@ -597,6 +602,12 @@ const es: Translations = {
       { value: "Not sure yet", label: "Aún no estoy seguro" },
     ],
   },
+  footer: {
+    description:
+      "Sitios web y tiendas en línea a medida, diseñados y desarrollados en Islandia.",
+    quickLinks: "Enlaces rápidos",
+    rights: "Todos los derechos reservados.",
+  },
 };
 
 const is: Translations = {
@@ -888,6 +899,11 @@ const is: Translations = {
       { value: "500,000+ ISK", label: "500,000+ ISK" },
       { value: "Not sure yet", label: "Ekki viss enn" },
     ],
+  },
+  footer: {
+    description: "Sérsniðnar vefsíður og netverslanir, hannaðar og þróaðar á Íslandi.",
+    quickLinks: "Flýtitenglar",
+    rights: "Allur réttur áskilinn.",
   },
 };
 

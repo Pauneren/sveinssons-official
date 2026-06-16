@@ -13,6 +13,8 @@ const navItemsConfig: { key: keyof Translations["nav"]; href: string; active?: b
   { key: "about", href: "#about" },
   { key: "services", href: "#services" },
   { key: "work", href: "#work" },
+  { key: "process", href: "#process" },
+  { key: "pricing", href: "#pricing" },
   { key: "contact", href: "#contact" },
 ];
 
