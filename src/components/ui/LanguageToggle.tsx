@@ -5,7 +5,6 @@ import type { Language } from "@/lib/translations";
 
 const options: { value: Language; label: string }[] = [
   { value: "en", label: "EN" },
-  { value: "es", label: "ES" },
   { value: "is", label: "IS" },
 ];
 

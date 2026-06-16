@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: "/",
     locale: "en_US",
-    alternateLocale: ["es_ES", "is_IS"],
+    alternateLocale: ["is_IS"],
     images: [{ url: "/hero-devices.png", alt: "Sveinssons custom websites" }],
   },
   twitter: {
@@ -55,7 +55,7 @@ const jsonLd = {
   description: siteConfig.description,
   url: siteUrl,
   areaServed: "IS",
-  availableLanguage: ["en", "es", "is"],
+  availableLanguage: ["en", "is"],
 };
 
 export default function RootLayout({
