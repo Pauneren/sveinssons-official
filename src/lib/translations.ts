@@ -38,15 +38,10 @@ const en = {
   },
   about: {
     eyebrow: "About us",
-    titleLead: "Websites that help your business ",
-    titleHighlight: "look professional and grow.",
-    body:
-      "Sveinssons helps small businesses, professionals, and creators build clean, fast, and trustworthy websites that are easy to use and easy to grow.",
-    points: [
-      "Custom design, not generic templates",
-      "Mobile-first and performance-focused",
-      "Clear structure, strong UX, and honest communication",
-    ],
+    titleLine1: "Built for Your",
+    titleHighlight: "Business",
+    description:
+      "Behind every Sveinssons website is one goal: make your business look as good online as it does in real life. Custom design, custom development, no templates. Based in Iceland, working in Icelandic, English, and Spanish.",
   },
   services: {
     eyebrow: "Our services",
@@ -345,15 +340,10 @@ const es: Translations = {
   },
   about: {
     eyebrow: "Sobre nosotros",
-    titleLead: "Sitios web creados con ",
-    titleHighlight: "cuidado, claridad y propósito.",
-    body:
-      "Sveinssons ayuda a pequeñas empresas, profesionales y creadores a construir sitios web limpios, rápidos y confiables, fáciles de usar y de hacer crecer.",
-    points: [
-      "Diseño a medida, no plantillas genéricas",
-      "Mobile-first y enfocado en el rendimiento",
-      "Estructura clara, buena UX y comunicación honesta",
-    ],
+    titleLine1: "Hecho para Tu",
+    titleHighlight: "Negocio",
+    description:
+      "Detrás de cada sitio web de Sveinssons hay un objetivo: hacer que tu negocio se vea tan bien en línea como en la vida real. Diseño a medida, desarrollo a medida, sin plantillas. Con base en Islandia, trabajamos en islandés, inglés y español.",
   },
   services: {
     eyebrow: "Nuestros servicios",
@@ -644,15 +634,10 @@ const is: Translations = {
   },
   about: {
     eyebrow: "Um okkur",
-    titleLead: "Vefsíður byggðar af ",
-    titleHighlight: "alúð, skýrleika og tilgangi.",
-    body:
-      "Sveinssons hjálpar litlum fyrirtækjum, fagfólki og skapandi fólki að byggja hreinar, hraðar og traustar vefsíður sem auðvelt er að nota og láta vaxa.",
-    points: [
-      "Sérsniðin hönnun, ekki almenn sniðmát",
-      "Farsímavæn og með áherslu á afköst",
-      "Skýr uppbygging, sterk notendaupplifun og heiðarleg samskipti",
-    ],
+    titleLine1: "Byggt fyrir",
+    titleHighlight: "Fyrirtækið Þitt",
+    description:
+      "Á bak við hverja Sveinssons vefsíðu er eitt markmið: láta fyrirtækið þitt líta jafn vel út á netinu og í raunveruleikanum. Sérsniðin hönnun, sérsniðin þróun, engin sniðmát. Staðsett á Íslandi, við vinnum á íslensku, ensku og spænsku.",
   },
   services: {
     eyebrow: "Þjónustan okkar",
