@@ -12,7 +12,7 @@ export function Work() {
   const comingSoonCount = Math.max(0, placeholderCount - t.work.projects.length);
 
   return (
-    <section id="work" className="scroll-mt-24 py-20 lg:py-28">
+    <section id="work" className="scroll-mt-24 py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
           <EyebrowBadge>{t.work.eyebrow}</EyebrowBadge>
@@ -24,7 +24,7 @@ export function Work() {
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-5 md:grid-cols-3 lg:mt-16">
+        <ul className="mt-10 grid gap-5 md:grid-cols-3 lg:mt-12">
           {t.work.projects.map((project) => (
             <li
               key={project.title}

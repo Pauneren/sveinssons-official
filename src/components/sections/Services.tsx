@@ -10,7 +10,7 @@ export function Services() {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="py-14 lg:py-20">
+    <section id="services" className="py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-16 lg:items-start">
           <div className="flex flex-col gap-5">

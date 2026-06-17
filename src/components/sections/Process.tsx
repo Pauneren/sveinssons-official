@@ -9,7 +9,7 @@ export function Process() {
   const { t } = useLanguage();
 
   return (
-    <section id="process" className="scroll-mt-24 py-14 lg:py-20">
+    <section id="process" className="scroll-mt-24 py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
           <EyebrowBadge>{t.process.eyebrow}</EyebrowBadge>

@@ -77,7 +77,7 @@ export function Pricing() {
   const { t } = useLanguage();
 
   return (
-    <section id="pricing" className="scroll-mt-24 py-20 lg:py-28">
+    <section id="pricing" className="scroll-mt-24 py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
           <EyebrowBadge>{t.pricing.eyebrow}</EyebrowBadge>
@@ -91,13 +91,13 @@ export function Pricing() {
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-3">
           {t.pricing.plans.map((plan) => (
             <PricingCard key={plan.title} plan={plan} ctaLabel={t.pricing.cardCta} />
           ))}
         </ul>
 
-        <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-white/[0.06] bg-[#0a0a0f]/80 px-6 py-8 text-center lg:mt-16 lg:px-10">
+        <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/[0.06] bg-[#0a0a0f]/80 px-6 py-8 text-center lg:mt-12 lg:px-10">
           <h3 className="text-lg font-semibold text-zinc-100">{t.pricing.tailoredTitle}</h3>
           <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
             {t.pricing.tailoredDescription}
