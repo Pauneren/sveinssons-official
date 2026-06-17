@@ -8,7 +8,7 @@ import { useLanguage } from "@/context/LanguageContext";
 const featureIcons = [LightningIcon, LayoutIcon, SmartphoneIcon];
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   return (
     <section className="relative isolate overflow-x-hidden">
@@ -51,7 +51,7 @@ export function Hero() {
         </div>
 
         <div className="hidden min-w-0 xl:block">
-          <HeroDeviceMockup />
+          <HeroDeviceMockup lang={lang} />
         </div>
       </div>
     </section>

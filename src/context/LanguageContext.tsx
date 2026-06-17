@@ -1,23 +1,39 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useMemo, useState } from "react";
 
-import { translations, type Language, type Translations } from "@/lib/translations";
+import {
+  type PublicLanguage,
+  writeLanguageCookie,
+} from "@/lib/language";
+import { translations, type Translations } from "@/lib/translations";
 
 type LanguageContextValue = {
-  lang: Language;
-  setLang: (lang: Language) => void;
+  lang: PublicLanguage;
+  setLang: (lang: PublicLanguage) => void;
   t: Translations;
 };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Language>("en");
+export function LanguageProvider({
+  children,
+  initialLanguage = "en",
+}: {
+  children: React.ReactNode;
+  initialLanguage?: PublicLanguage;
+}) {
+  const [lang, setLangState] = useState<PublicLanguage>(initialLanguage);
+
+  const setLang = useCallback((next: PublicLanguage) => {
+    setLangState(next);
+    writeLanguageCookie(next);
+    document.documentElement.lang = next;
+  }, []);
 
   const value = useMemo<LanguageContextValue>(
     () => ({ lang, setLang, t: translations[lang] }),
-    [lang],
+    [lang, setLang],
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;

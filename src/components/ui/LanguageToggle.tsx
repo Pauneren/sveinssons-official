@@ -1,9 +1,9 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import type { Language } from "@/lib/translations";
+import type { PublicLanguage } from "@/lib/language";
 
-const options: { value: Language; label: string }[] = [
+const options: { value: PublicLanguage; label: string }[] = [
   { value: "en", label: "EN" },
   { value: "is", label: "IS" },
 ];

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { LANGUAGE_COOKIE, parseLanguageCookie } from "@/lib/language";
 import { siteConfig, siteUrl } from "@/lib/site";
 
 const inter = Inter({
@@ -58,19 +60,22 @@ const jsonLd = {
   availableLanguage: ["en", "is"],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const initialLanguage = parseLanguageCookie(cookieStore.get(LANGUAGE_COOKIE)?.value);
+
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang={initialLanguage} className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full bg-background text-foreground">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider initialLanguage={initialLanguage}>{children}</LanguageProvider>
       </body>
     </html>
   );

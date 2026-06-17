@@ -79,3 +79,31 @@ body {
   transform: translateY(calc(0.5rem - 30px)) scale(0.94);
   transform-origin: 44% 100%;
 }
+
+.hero-device-fade {
+  position: absolute;
+  top: 0;
+  left: -6%;
+  z-index: 10;
+  width: 112%;
+  height: 100%;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.hero-device-fade-boost {
+  position: absolute;
+  top: 0;
+  left: -6%;
+  z-index: 11;
+  width: 112%;
+  height: 100%;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 5, 8, 0.22) 0%,
+      rgba(0, 0, 0, 0.1) 38%,
+      rgba(0, 0, 0, 0.16) 100%
+    );
+}

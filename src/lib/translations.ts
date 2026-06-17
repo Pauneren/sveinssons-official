@@ -41,7 +41,7 @@ const en = {
     titleLine1: "Built for Your",
     titleHighlight: "Business",
     description:
-      "Behind every Sveinssons website is one goal: make your business look as good online as it does in real life. Custom design, custom development, no templates. Based in Iceland, working in Icelandic, English, and Spanish.",
+      "Behind every Sveinssons website is one goal: make your business look as good online as it does in real life. Custom design, custom development, no templates. Based in Iceland, working in Icelandic and English.",
   },
   services: {
     eyebrow: "Our services",
@@ -133,6 +133,7 @@ const en = {
     plans: [
       {
         title: "Landing Page",
+        price: "From 149,000 ISK",
         description:
           "A focused custom page designed to introduce your business, service, or campaign clearly and professionally.",
         features: [
@@ -146,6 +147,9 @@ const en = {
       },
       {
         title: "Business Website",
+        price: "From 289,000 ISK",
+        badge: "MOST POPULAR",
+        featured: true,
         description:
           "A professional custom website for a business that needs a strong online presence and clear enquiry flow.",
         features: [
@@ -160,6 +164,7 @@ const en = {
       },
       {
         title: "Online Store",
+        price: "From 489,000 ISK",
         description:
           "A custom-designed storefront built with trusted commerce and payment technology for selling products online.",
         features: [
@@ -440,6 +445,7 @@ const es: Translations = {
     plans: [
       {
         title: "Página de Aterrizaje (pagina unica)",
+        price: "Desde 149,000 ISK",
         description:
           "Una página a medida y enfocada, diseñada para presentar tu negocio, servicio o campaña de forma clara y profesional.",
         features: [
@@ -453,6 +459,9 @@ const es: Translations = {
       },
       {
         title: "Website para empresa",
+        price: "Desde 289,000 ISK",
+        badge: "MÁS POPULAR",
+        featured: true,
         description:
           "Un sitio web a medida y profesional para un negocio que necesita una presencia sólida en línea y un flujo de consultas claro.",
         features: [
@@ -467,6 +476,7 @@ const es: Translations = {
       },
       {
         title: "Tienda en Línea",
+        price: "Desde 489,000 ISK",
         description:
           "Un escaparate diseñado a medida y construido con tecnología de comercio y pago de confianza para vender productos en línea.",
         features: [
@@ -640,26 +650,26 @@ const is: Translations = {
     ],
   },
   serviceStrip: {
-    heading: "STAFRÆN ÞJÓNUSTA FYRIR NÚTÍMA FYRIRTÆKI",
-    items: ["SÉRSNIÐNAR VEFSÍÐUR", "NETVERSLANIR", "VERKASÖFN", "LENDINGARSÍÐUR", "VIÐHALD"],
+    heading: "STAFRÆN ÞJÓNUSTA FYRIR NÚTÍMAFYRIRTÆKI",
+    items: ["SÉRSNIÐNAR VEFSÍÐUR", "NETVERSLANIR", "VERKEFNASÍÐUR", "LENDINGARSÍÐUR", "VIÐHALD"],
   },
   about: {
     eyebrow: "Um okkur",
     titleLine1: "Byggt fyrir",
     titleHighlight: "Fyrirtækið Þitt",
     description:
-      "Á bak við hverja Sveinssons vefsíðu er eitt markmið: láta fyrirtækið þitt líta jafn vel út á netinu og í raunveruleikanum. Sérsniðin hönnun, sérsniðin þróun, engin sniðmát. Staðsett á Íslandi, við vinnum á íslensku, ensku og spænsku.",
+      "Á bak við hverja Sveinssons vefsíðu er eitt markmið: láta fyrirtækið þitt líta jafn vel út á netinu og í raunveruleikanum. Sérsniðin hönnun, sérsniðin þróun, engin sniðmát. Staðsett á Íslandi, við vinnum á íslensku og ensku.",
   },
   services: {
     eyebrow: "Þjónustan okkar",
-    titleLine1: "Heildarlausnir á Vefnum",
-    titleLine2Prefix: "fyrir ",
-    titleHighlight: "Fyrirtækið Þitt",
+    titleLine1: "Heildarlausnir fyrir",
+    titleLine2Prefix: "",
+    titleHighlight: "vefinn þinn",
     description:
       "Hver vefsíða er vandlega hönnuð og þróuð fyrir hvert fyrirtæki, með einstakri uppbyggingu, sjónrænni ímynd og notendaupplifun.",
     items: [
       {
-        title: "Sérsniðin Vefhönnun",
+        title: "Sérsniðin vefhönnun",
         description: "Fallegar, nútímalegar hönnanir sniðnar að vörumerkinu þínu.",
       },
       {
@@ -667,7 +677,7 @@ const is: Translations = {
         description: "Hraðar, öruggar og skalanlegar vefsíður byggðar með nýjustu tækni.",
       },
       {
-        title: "Lausnir fyrir Netverslun",
+        title: "Netverslanalausnir",
         description: "Netverslanir sem breyta gestum í trygga viðskiptavini.",
       },
     ],
@@ -701,13 +711,13 @@ const is: Translations = {
   },
   process: {
     eyebrow: "Ferlið okkar",
-    titleLine1: "Frá Hugmynd að Útgáfu,",
-    titleHighlight: "Byggt í Kringum Þig",
+    titleLine1: "Frá hugmynd að birtingu,",
+    titleHighlight: "byggt í kringum þig",
     description:
       "Hvert verkefni hefst á því að skilja fyrirtækið þitt. Við hönnum og þróum stafræna upplifun sniðna að markmiðum þínum, viðskiptavinum þínum og vörumerkinu þínu.",
     steps: [
       {
-        title: "Uppgötvun",
+        title: "Greining",
         description:
           "Við kynnumst fyrirtækinu þínu, markhópi, markmiðum og hvað vefsíðan þín þarf að ná fram.",
       },
@@ -722,7 +732,7 @@ const is: Translations = {
           "Við byggjum hraða og svörunarhæfa vefsíðu eða netverslun með hreinni og áreiðanlegri tækni.",
       },
       {
-        title: "Útgáfa og Stuðningur",
+        title: "Birting og stuðningur",
         description:
           "Við undirbúum síðuna fyrir útgáfu og hjálpum þér að halda henni uppfærðri, öruggri og árangursríkri.",
       },
@@ -730,15 +740,16 @@ const is: Translations = {
   },
   pricing: {
     eyebrow: "Verð",
-    titleLine1: "Sveigjanlegir Pakkar fyrir",
-    titleHighlight: "Sérsmíðaðar Vefsíður",
+    titleLine1: "Sveigjanlegir pakkar fyrir",
+    titleHighlight: "sérsniðnar vefsíður",
     description:
       "Hver vefsíða er sniðin að fyrirtækinu á bak við hana. Þessi byrjunarverð gefa þér skýra hugmynd um fjárfestinguna áður en við skilgreinum lokaumfangið saman.",
     badgePopular: "VINSÆLAST",
-    cardCta: "Biðja um tilboð",
+    cardCta: "Fá tilboð",
     plans: [
       {
         title: "Lendingarsíða",
+        price: "Frá 149.000 kr.",
         description:
           "Markviss sérsniðin síða, hönnuð til að kynna fyrirtækið þitt, þjónustu eða herferð á skýran og faglegan hátt.",
         features: [
@@ -751,7 +762,10 @@ const is: Translations = {
         ],
       },
       {
-        title: "Fyrirtækjavefur",
+        title: "Fyrirtækjavefsíða",
+        price: "Frá 289.000 kr.",
+        badge: "VINSÆLAST",
+        featured: true,
         description:
           "Fagleg sérsniðin vefsíða fyrir fyrirtæki sem þarf sterka viðveru á netinu og skýrt fyrirspurnaflæði.",
         features: [
@@ -766,6 +780,7 @@ const is: Translations = {
       },
       {
         title: "Netverslun",
+        price: "Frá 489.000 kr.",
         description:
           "Sérhönnuð verslun byggð með traustri verslunar- og greiðslutækni til að selja vörur á netinu.",
         features: [
@@ -779,10 +794,10 @@ const is: Translations = {
         ],
       },
     ],
-    tailoredTitle: "Þarftu eitthvað meira sérsniðið?",
+    tailoredTitle: "Vantar þig sérsniðnari lausn?",
     tailoredDescription:
-      "Verkasöfn, tvítyngdar vefsíður, bókunaraðgerðir, samþættingar, viðhaldsáætlanir og stærri sérverkefni eru verðlögð eftir umfangi.",
-    tailoredCta: "Ræddu verkefnið þitt",
+      "Verkefnasíður, tvítyngdar vefsíður, bókunaraðgerðir, samþættingar, viðhaldsáætlanir og stærri sérverkefni eru verðlögð eftir umfangi.",
+    tailoredCta: "Ræðum verkefnið þitt",
     footnote:
       "Verð sem birt eru eru byrjunarverð í ISK. Virðisaukaskatti er bætt við þar sem við á. Lokaverð fer eftir umfangi og kröfum verkefnisins.",
   },
@@ -836,7 +851,7 @@ const is: Translations = {
     services: [
       "Sérsniðnar vefsíður",
       "Netverslanir",
-      "Verkasöfn",
+      "Verkefnasíður",
       "Lendingarsíður",
       "Viðhald og uppfærslur",
     ],

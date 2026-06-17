@@ -1,62 +1,10 @@
+"use client";
+
 import { Button, EyebrowBadge } from "@/components/ui/Button";
+import { useLanguage } from "@/context/LanguageContext";
+import type { Translations } from "@/lib/translations";
 
-type PricingPlan = {
-  title: string;
-  price: string;
-  description: string;
-  features: readonly string[];
-  featured?: boolean;
-  badge?: string;
-};
-
-const plans: PricingPlan[] = [
-  {
-    title: "Landing Page",
-    price: "From 149,000 ISK",
-    description:
-      "A focused custom page designed to introduce your business, service, or campaign clearly and professionally.",
-    features: [
-      "Custom one-page design",
-      "Responsive mobile-first build",
-      "Contact or enquiry call-to-action",
-      "Basic SEO setup",
-      "One revision round",
-      "Launch support",
-    ],
-  },
-  {
-    badge: "MOST POPULAR",
-    title: "Business Website",
-    price: "From 289,000 ISK",
-    description:
-      "A professional custom website for a business that needs a strong online presence and clear enquiry flow.",
-    featured: true,
-    features: [
-      "Up to 5 core pages",
-      "Custom design for your brand",
-      "Responsive development",
-      "Contact/enquiry form setup",
-      "Basic technical SEO",
-      "Two revision rounds",
-      "Launch support",
-    ],
-  },
-  {
-    title: "Online Store",
-    price: "From 489,000 ISK",
-    description:
-      "A custom-designed storefront built with trusted commerce and payment technology for selling products online.",
-    features: [
-      "Custom storefront design",
-      "Product and category structure",
-      "Cart and checkout setup",
-      "Payment setup support",
-      "Responsive testing",
-      "Basic SEO structure",
-      "Up to 10 initial products",
-    ],
-  },
-];
+type PricingPlan = Translations["pricing"]["plans"][number];
 
 function CheckIcon() {
   return (
@@ -77,7 +25,7 @@ function CheckIcon() {
   );
 }
 
-function PricingCard({ plan }: { plan: PricingPlan }) {
+function PricingCard({ plan, ctaLabel }: { plan: PricingPlan; ctaLabel: string }) {
   const cardBody = (
     <div className="flex h-full flex-col gap-5 p-6 lg:p-7">
       {plan.badge ? (
@@ -103,7 +51,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
         ))}
       </ul>
       <Button href="#contact" className="mt-auto w-full">
-        Request a Quote
+        {ctaLabel}
       </Button>
     </div>
   );
@@ -126,42 +74,41 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
 }
 
 export function Pricing() {
+  const { t } = useLanguage();
+
   return (
     <section id="pricing" className="scroll-mt-24 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
-          <EyebrowBadge>Pricing</EyebrowBadge>
+          <EyebrowBadge>{t.pricing.eyebrow}</EyebrowBadge>
           <h2 className="text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl lg:text-[2.75rem]">
-            Flexible Packages for
+            {t.pricing.titleLine1}
             <br />
-            <span className="text-gradient">Custom-Built Websites</span>
+            <span className="text-gradient">{t.pricing.titleHighlight}</span>
           </h2>
           <p className="text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Every website is tailored to the business behind it. These starting prices give you
-            a clear idea of investment before we define the final scope together.
+            {t.pricing.description}
           </p>
         </div>
 
         <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <PricingCard key={plan.title} plan={plan} />
+          {t.pricing.plans.map((plan) => (
+            <PricingCard key={plan.title} plan={plan} ctaLabel={t.pricing.cardCta} />
           ))}
         </ul>
 
         <div className="mx-auto mt-14 max-w-2xl rounded-2xl border border-white/[0.06] bg-[#0a0a0f]/80 px-6 py-8 text-center lg:mt-16 lg:px-10">
-          <h3 className="text-lg font-semibold text-zinc-100">Need something more tailored?</h3>
+          <h3 className="text-lg font-semibold text-zinc-100">{t.pricing.tailoredTitle}</h3>
           <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Portfolios, bilingual websites, booking features, integrations, maintenance plans,
-            and larger custom projects are quoted according to scope.
+            {t.pricing.tailoredDescription}
           </p>
           <Button href="#contact" variant="secondary" className="mt-6">
-            Discuss Your Project
+            {t.pricing.tailoredCta}
           </Button>
         </div>
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-white/50 sm:text-sm">
-          Prices shown are starting prices in ISK. VAT is added where applicable. Final pricing
-          depends on project scope and requirements.
+          {t.pricing.footnote}
         </p>
       </div>
     </section>
