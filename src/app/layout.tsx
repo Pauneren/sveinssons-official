@@ -56,7 +56,6 @@ const jsonLd = {
   name: siteConfig.name,
   description: siteConfig.description,
   url: siteUrl,
-  areaServed: "IS",
   availableLanguage: ["en", "is"],
 };
 
