@@ -40,13 +40,13 @@ export const metadata: Metadata = {
     url: "/",
     locale: "en_US",
     alternateLocale: ["is_IS"],
-    images: [{ url: "/hero-devices.png", alt: "Sveinssons custom websites" }],
+    images: [{ url: "/images/hero-devices.png", alt: "Sveinssons custom websites" }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/hero-devices.png"],
+    images: ["/images/hero-devices.png"],
   },
 };
 
