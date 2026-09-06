@@ -2,6 +2,7 @@
 
 import { Button, EyebrowBadge } from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
+import { localeHref } from "@/lib/language";
 import type { Translations } from "@/lib/translations";
 
 type PricingPlan = Translations["pricing"]["plans"][number];
@@ -26,6 +27,7 @@ function CheckIcon() {
 }
 
 function PricingCard({ plan, ctaLabel }: { plan: PricingPlan; ctaLabel: string }) {
+  const { lang } = useLanguage();
   const cardBody = (
     <div className="flex h-full flex-col gap-5 p-6 lg:p-7">
       {plan.badge ? (
@@ -50,7 +52,7 @@ function PricingCard({ plan, ctaLabel }: { plan: PricingPlan; ctaLabel: string }
           </li>
         ))}
       </ul>
-      <Button href="#contact" className="mt-auto w-full">
+      <Button href={localeHref(lang, "#contact")} className="mt-auto w-full">
         {ctaLabel}
       </Button>
     </div>
@@ -74,7 +76,7 @@ function PricingCard({ plan, ctaLabel }: { plan: PricingPlan; ctaLabel: string }
 }
 
 export function Pricing() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section id="pricing" className="scroll-mt-24 py-14 lg:py-20">
@@ -102,7 +104,7 @@ export function Pricing() {
           <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
             {t.pricing.tailoredDescription}
           </p>
-          <Button href="#contact" variant="secondary" className="mt-6">
+          <Button href={localeHref(lang, "#contact")} variant="secondary" className="mt-6">
             {t.pricing.tailoredCta}
           </Button>
         </div>

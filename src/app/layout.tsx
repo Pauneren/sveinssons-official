@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { LANGUAGE_COOKIE, parseLanguageCookie } from "@/lib/language";
-import { siteConfig, siteUrl } from "@/lib/site";
+import { createLocaleMetadata } from "@/lib/seo";
+import { getRequestLanguage } from "@/lib/request-language";
+import { localeSeo, siteConfig, siteUrl } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,69 +11,31 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: siteConfig.title,
-    template: "%s | Sveinssons",
-  },
-  description: siteConfig.description,
-  keywords: [
-    "web design Iceland",
-    "web development Iceland",
-    "custom websites",
-    "e-commerce",
-    "online store",
-    "landing pages",
-    "portfolio websites",
-    "website maintenance",
-    "SEO",
-    "Sveinssons",
-  ],
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    siteName: siteConfig.name,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    url: "/",
-    locale: "en_US",
-    alternateLocale: ["is_IS"],
-    images: [{ url: "/images/hero-devices.png", alt: "Sveinssons custom websites" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: ["/images/hero-devices.png"],
-  },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: siteConfig.name,
-  description: siteConfig.description,
-  url: siteUrl,
-  availableLanguage: ["en", "is"],
-};
+export const metadata = createLocaleMetadata("is");
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const initialLanguage = parseLanguageCookie(cookieStore.get(LANGUAGE_COOKIE)?.value);
+  const language = await getRequestLanguage();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: siteConfig.name,
+    description: localeSeo[language].description,
+    url: siteUrl,
+    availableLanguage: ["en", "is"],
+  };
 
   return (
-    <html lang={initialLanguage} className={`${inter.variable} h-full antialiased`}>
+    <html lang={language} className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full bg-background text-foreground">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <LanguageProvider initialLanguage={initialLanguage}>{children}</LanguageProvider>
+        <LanguageProvider initialLanguage={language}>{children}</LanguageProvider>
       </body>
     </html>
   );

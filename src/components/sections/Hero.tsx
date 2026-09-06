@@ -4,6 +4,7 @@ import { LayoutIcon, LightningIcon, SmartphoneIcon } from "@/components/icons";
 import { HeroDeviceMockup } from "@/components/sections/HeroDeviceMockup";
 import { Button, EyebrowBadge } from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
+import { localeHref } from "@/lib/language";
 
 const featureIcons = [LightningIcon, LayoutIcon, SmartphoneIcon];
 
@@ -28,10 +29,10 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <Button href="#contact" showArrow>
+            <Button href={localeHref(lang, "#contact")} showArrow>
               {t.hero.ctaPrimary}
             </Button>
-            <Button href="#work" variant="secondary">
+            <Button href={localeHref(lang, "#work")} variant="secondary">
               {t.hero.ctaSecondary}
             </Button>
           </div>

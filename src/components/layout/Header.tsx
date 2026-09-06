@@ -6,6 +6,7 @@ import { LogoMark } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { useLanguage } from "@/context/LanguageContext";
+import { localeHref } from "@/lib/language";
 import type { Translations } from "@/lib/translations";
 
 const navItemsConfig: { key: keyof Translations["nav"]; href: string; active?: boolean }[] = [
@@ -22,8 +23,12 @@ const barBase =
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const { t } = useLanguage();
-  const navItems = navItemsConfig.map((item) => ({ ...item, label: t.nav[item.key] }));
+  const { t, lang } = useLanguage();
+  const navItems = navItemsConfig.map((item) => ({
+    ...item,
+    href: localeHref(lang, item.href),
+    label: t.nav[item.key],
+  }));
 
   useEffect(() => {
     if (!open) return;
@@ -37,11 +42,11 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#050508]/80 backdrop-blur-md">
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-        <a href="#" className="relative z-10 flex shrink-0 items-center gap-3">
-          <LogoMark className="h-10 w-10" />
-          <span className="text-lg font-bold tracking-tight">Sveinssons</span>
+    <header className="sticky top-0 z-50 w-full min-w-0 overflow-x-clip bg-[#050508]/80 backdrop-blur-md">
+      <div className="relative mx-auto flex w-full min-w-0 max-w-7xl items-center justify-between gap-3 px-4 py-5 sm:px-6 lg:px-8">
+        <a href={localeHref(lang)} className="relative z-10 flex min-w-0 items-center gap-3">
+          <LogoMark className="h-10 w-10 shrink-0" />
+          <span className="truncate text-lg font-bold tracking-tight">Sveinssons</span>
         </a>
 
         <nav
@@ -63,12 +68,10 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="relative z-10 flex shrink-0 items-center gap-3">
+        <div className="relative z-10 flex shrink-0 items-center gap-2 xl:gap-3">
+          <LanguageToggle />
           <div className="hidden xl:block">
-            <LanguageToggle />
-          </div>
-          <div className="hidden xl:block">
-            <Button href="#contact" showArrow>
+            <Button href={localeHref(lang, "#contact")} showArrow>
               {t.nav.cta}
             </Button>
           </div>
@@ -104,7 +107,7 @@ export function Header() {
       <div
         id="mobile-menu"
         aria-hidden={!open}
-        className={`overflow-hidden border-t backdrop-blur-md transition-all duration-300 ease-out motion-reduce:transition-none xl:hidden ${
+        className={`min-w-0 overflow-hidden border-t backdrop-blur-md transition-all duration-300 ease-out motion-reduce:transition-none xl:hidden ${
           open
             ? "visible max-h-112 translate-y-0 border-white/6 bg-[#050508]/95 opacity-100"
             : "invisible max-h-0 -translate-y-1 border-transparent bg-[#050508]/95 opacity-0"
@@ -129,11 +132,8 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <div className="px-3 py-3">
-            <LanguageToggle />
-          </div>
           <Button
-            href="#contact"
+            href={localeHref(lang, "#contact")}
             showArrow
             onClick={() => setOpen(false)}
             className="mt-3 w-full"

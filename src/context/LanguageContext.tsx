@@ -1,8 +1,9 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useMemo } from "react";
 
 import {
+  localePath,
   type PublicLanguage,
   writeLanguageCookie,
 } from "@/lib/language";
@@ -18,18 +19,21 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({
   children,
-  initialLanguage = "en",
+  initialLanguage = "is",
 }: {
   children: React.ReactNode;
   initialLanguage?: PublicLanguage;
 }) {
-  const [lang, setLangState] = useState<PublicLanguage>(initialLanguage);
+  const lang = initialLanguage;
 
-  const setLang = useCallback((next: PublicLanguage) => {
-    setLangState(next);
-    writeLanguageCookie(next);
-    document.documentElement.lang = next;
-  }, []);
+  const setLang = useCallback(
+    (next: PublicLanguage) => {
+      writeLanguageCookie(next);
+      if (next === lang) return;
+      window.location.assign(`${localePath(next)}${window.location.hash}`);
+    },
+    [lang],
+  );
 
   const value = useMemo<LanguageContextValue>(
     () => ({ lang, setLang, t: translations[lang] }),

@@ -2,16 +2,17 @@
 
 import { LogoMark } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
+import { localeHref } from "@/lib/language";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const year = new Date().getFullYear();
 
   const quickLinks = [
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.work, href: "#work" },
-    { label: t.nav.pricing, href: "#pricing" },
-    { label: t.nav.contact, href: "#contact" },
+    { label: t.nav.services, href: localeHref(lang, "#services") },
+    { label: t.nav.work, href: localeHref(lang, "#work") },
+    { label: t.nav.pricing, href: localeHref(lang, "#pricing") },
+    { label: t.nav.contact, href: localeHref(lang, "#contact") },
   ];
 
   return (
@@ -19,13 +20,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-14">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="flex max-w-sm flex-col gap-4">
-            <a href="#" className="flex items-center gap-3">
+            <a href={localeHref(lang)} className="flex items-center gap-3">
               <LogoMark className="h-9 w-9" />
               <span className="text-lg font-bold tracking-tight">Sveinssons</span>
             </a>
             <p className="text-sm leading-relaxed text-zinc-400">{t.footer.description}</p>
             <a
-              href="#contact"
+              href={localeHref(lang, "#contact")}
               className="text-sm font-medium text-[#a78bfa] transition-colors hover:text-[#c4b5fd]"
             >
               {t.nav.contact}
