@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import {
+  isPublicLanguage,
   localeHref,
   type PublicLanguage,
   readLanguageCookie,
@@ -33,22 +34,27 @@ function browserLanguagePreference(): PublicLanguage {
   return preferred.startsWith("is") ? "is" : "en";
 }
 
-function preferredLanguage(countryPreference: PublicLanguage | null): PublicLanguage {
-  if (countryPreference) return countryPreference;
-  if (typeof navigator === "undefined") return "en";
-  return browserLanguagePreference();
-}
-
 function subscribeHash(onStoreChange: () => void) {
   window.addEventListener("hashchange", onStoreChange);
   return () => window.removeEventListener("hashchange", onStoreChange);
 }
 
-export function LanguageSuggestion({
-  countryPreference,
-}: {
-  countryPreference: PublicLanguage | null;
-}) {
+async function fetchCountryPreference(): Promise<PublicLanguage | null> {
+  try {
+    const response = await fetch("/api/language-preference", { cache: "no-store" });
+    if (!response.ok) return null;
+
+    const data: unknown = await response.json();
+    if (!data || typeof data !== "object" || !("preferredLanguage" in data)) return null;
+
+    const value = data.preferredLanguage;
+    return typeof value === "string" && isPublicLanguage(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+export function LanguageSuggestion() {
   const { lang } = useLanguage();
   const isClient = useSyncExternalStore(
     () => () => {},
@@ -57,17 +63,29 @@ export function LanguageSuggestion({
   );
   const hash = useSyncExternalStore(subscribeHash, () => window.location.hash, () => "");
   const [dismissed, setDismissed] = useState(false);
+  const [preferred, setPreferred] = useState<PublicLanguage | null>(null);
 
-  let target: PublicLanguage | null = null;
-  if (isClient && !dismissed && !readLanguageCookie()) {
-    const preferred = preferredLanguage(countryPreference);
-    const next = preferred === lang ? null : preferred;
-    if (next && !sessionStorage.getItem(`${HINT_STORAGE_KEY}:${next}`)) {
-      target = next;
-    }
-  }
+  const hasManualCookie = isClient && Boolean(readLanguageCookie());
 
-  if (!target) return null;
+  useEffect(() => {
+    if (!isClient || dismissed || hasManualCookie) return;
+
+    let cancelled = false;
+
+    fetchCountryPreference().then((countryPreference) => {
+      if (cancelled) return;
+      setPreferred(countryPreference ?? browserLanguagePreference());
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isClient, dismissed, hasManualCookie]);
+
+  if (!isClient || dismissed || hasManualCookie || !preferred) return null;
+
+  const target = preferred === lang ? null : preferred;
+  if (!target || sessionStorage.getItem(`${HINT_STORAGE_KEY}:${target}`)) return null;
 
   const text = copy[target];
 

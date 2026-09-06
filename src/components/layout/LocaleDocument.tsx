@@ -1,8 +1,7 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
+
 import { LanguageProvider } from "@/context/LanguageContext";
-import { createLocaleMetadata } from "@/lib/seo";
-import { getRequestLanguage } from "@/lib/request-language";
+import type { PublicLanguage } from "@/lib/language";
 import { localeSeo, siteConfig, siteUrl } from "@/lib/site";
 
 const inter = Inter({
@@ -11,14 +10,13 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata = createLocaleMetadata("is");
-
-export default async function RootLayout({
+export function LocaleDocument({
+  language,
   children,
-}: Readonly<{
+}: {
+  language: PublicLanguage;
   children: React.ReactNode;
-}>) {
-  const language = await getRequestLanguage();
+}) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",

@@ -1,6 +1,4 @@
 export const LANGUAGE_COOKIE = "sveinssons-language";
-export const LOCALE_HEADER = "x-sveinssons-locale";
-export const COUNTRY_PREF_HEADER = "x-sveinssons-country-pref";
 export const VERCEL_IP_COUNTRY_HEADER = "x-vercel-ip-country";
 
 export type PublicLanguage = "en" | "is";
