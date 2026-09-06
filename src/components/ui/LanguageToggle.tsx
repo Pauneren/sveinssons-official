@@ -14,7 +14,7 @@ const options: { value: PublicLanguage; label: string }[] = [
 
 export function LanguageToggle() {
   const { lang } = useLanguage();
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
   const [hash, setHash] = useState("");
 
   useEffect(() => {

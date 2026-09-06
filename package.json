@@ -2,6 +2,9 @@
   "name": "sveinssons-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=24.11.0 <25"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,10 +12,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@sveinssons-dev/form-kit-core": "1.0.2",
+    "@sveinssons-dev/form-kit-email": "1.0.2",
+    "@sveinssons-dev/form-kit-redis": "1.0.2",
+    "@sveinssons-dev/form-kit-server": "1.0.2",
+    "@sveinssons-dev/form-kit-vercel": "1.0.2",
     "next": "16.2.7",
     "nodemailer": "^8.0.11",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "redis": "5.12.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

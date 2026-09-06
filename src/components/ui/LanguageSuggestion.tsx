@@ -58,7 +58,7 @@ async function fetchCountryPreference(): Promise<PublicLanguage | null> {
 
 export function LanguageSuggestion() {
   const { lang } = useLanguage();
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
   const isClient = useSyncExternalStore(
     () => () => {},
     () => true,
