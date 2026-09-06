@@ -13,6 +13,12 @@ export function createLocaleMetadata(lang: PublicLanguage): Metadata {
   const path = localePath(lang);
   const copy = localeSeo[lang];
   const icelandic = lang === "is";
+  const socialImage = icelandic
+    ? "/images/hero-devices-is-aligned.png"
+    : "/images/hero-devices-en.png";
+  const socialImageAlt = icelandic
+    ? "Vefsíða Sveinssons sýnd á fartölvu og snjallsíma"
+    : "Sveinssons website shown on a laptop and smartphone";
 
   return {
     metadataBase: new URL(siteUrl),
@@ -47,13 +53,13 @@ export function createLocaleMetadata(lang: PublicLanguage): Metadata {
       url: path,
       locale: icelandic ? "is_IS" : "en_US",
       alternateLocale: icelandic ? ["en_US"] : ["is_IS"],
-      images: [{ url: "/images/hero-devices.png", alt: "Sveinssons custom websites" }],
+      images: [{ url: socialImage, alt: socialImageAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: copy.title,
       description: copy.description,
-      images: ["/images/hero-devices.png"],
+      images: [socialImage],
     },
   };
 }

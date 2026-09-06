@@ -34,7 +34,7 @@ export function Work() {
                 {project.image ? (
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={project.imageAlt}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className="object-cover"

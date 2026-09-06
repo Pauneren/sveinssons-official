@@ -11,9 +11,9 @@ export const siteConfig = {
 
 export const localeSeo = {
   is: {
-    title: "Vefsíðugerð og vefhönnun | Sveinssons",
+    title: "Vefsíðugerð og vefhönnun á Íslandi | Sveinssons",
     description:
-      "Sveinssons hannar og þróar sérsniðnar vefsíður, vefverslanir, portfolio-síður og lendingarsíður fyrir fyrirtæki og fagfólk. Nútímalegar, hraðar og SEO-vænar lausnir.",
+      "Sveinssons býður vefsíðugerð, vefhönnun og vefforritun á Íslandi fyrir fyrirtæki og fagfólk. Sérsniðnar, hraðar og SEO-vænar vefsíður og vefverslanir.",
   },
   en: {
     title: siteConfig.title,

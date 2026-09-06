@@ -9,7 +9,7 @@ const HERO_DEVICES = {
 
 const HERO_DEVICE_SIZE = { width: 1024, height: 688 } as const;
 
-export function HeroDeviceMockup({ lang }: { lang: PublicLanguage }) {
+export function HeroDeviceMockup({ lang, alt }: { lang: PublicLanguage; alt: string }) {
   const src = lang === "is" ? HERO_DEVICES.is : HERO_DEVICES.en;
 
   return (
@@ -17,7 +17,7 @@ export function HeroDeviceMockup({ lang }: { lang: PublicLanguage }) {
       <div className="hero-device-wide-glow" aria-hidden />
       <Image
         src={src}
-        alt="Sveinssons website on a laptop and smartphone"
+        alt={alt}
         width={HERO_DEVICE_SIZE.width}
         height={HERO_DEVICE_SIZE.height}
         priority

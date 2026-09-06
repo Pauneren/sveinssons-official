@@ -26,6 +26,7 @@ const en = {
       "Sveinssons designs and develops custom websites and online stores built around your business — never generic, one-size-fits-all templates.",
     ctaPrimary: "Get a Free Quote",
     ctaSecondary: "View Our Work",
+    deviceAlt: "Sveinssons website shown on a laptop and smartphone",
     features: [
       { title: "Fast Delivery", subtitle: "Clear timelines and reliable delivery" },
       { title: "Custom Built", subtitle: "Designed specifically for your brand" },
@@ -81,6 +82,7 @@ const en = {
           "Psychology practice website. Warm gradient design, Spanish language, services for adolescents, adults and couples, in-person and online.",
         liveUrl: "https://travesiainternapsicologia.com",
         image: "/images/website1.png",
+        imageAlt: "Screenshot of the Julieta Banco — Psicología website",
         tags: ["Psychology", "Spanish", "Responsive"],
       },
       {
@@ -89,6 +91,7 @@ const en = {
           "Medical website for an integrative medicine and pain-management doctor, designed to present services clearly and guide patients toward appointment enquiries.",
         liveUrl: "https://drnicolascapdevila.netlify.app/",
         image: "/images/website2.png",
+        imageAlt: "Screenshot of the Dr. Nicolás Capdevila website",
         tags: ["Medical", "Spanish", "Responsive"],
       },
     ],
@@ -332,6 +335,7 @@ const es: Translations = {
       "Sveinssons diseña y desarrolla sitios web y tiendas en línea a medida, creados en torno a tu negocio — nunca plantillas genéricas de talla única.",
     ctaPrimary: "Pide presupuesto gratis",
     ctaSecondary: "Mira nuestro trabajo",
+    deviceAlt: "Sitio web de Sveinssons mostrado en un portátil y un teléfono",
     features: [
       { title: "Entrega Rápida", subtitle: "Plazos claros y entrega fiable" },
       { title: "Hecho a Medida", subtitle: "Diseñado específicamente para tu marca" },
@@ -393,6 +397,7 @@ const es: Translations = {
           "Sitio web de consulta de psicología. Diseño con degradado cálido, en español, servicios para adolescentes, adultos y parejas, presenciales y en línea.",
         liveUrl: "https://travesiainternapsicologia.com",
         image: "/images/website1.png",
+        imageAlt: "Captura de pantalla del sitio web Julieta Banco — Psicología",
         tags: ["Psicología", "Español", "Adaptable"],
       },
       {
@@ -401,6 +406,7 @@ const es: Translations = {
           "Sitio web médico para un especialista en medicina integrativa y manejo del dolor, diseñado para presentar los servicios con claridad y guiar a los pacientes hacia consultas de cita.",
         liveUrl: "https://drnicolascapdevila.netlify.app/",
         image: "/images/website2.png",
+        imageAlt: "Captura de pantalla del sitio web Dr. Nicolás Capdevila",
         tags: ["Médico", "Español", "Adaptable"],
       },
     ],
@@ -643,6 +649,7 @@ const is: Translations = {
       "Sveinssons hannar og þróar sérsniðnar vefsíður og netverslanir sem byggðar eru í kringum þitt fyrirtæki — aldrei almenn sniðmát sem henta öllum.",
     ctaPrimary: "Fáðu ókeypis tilboð",
     ctaSecondary: "Skoðaðu verkin okkar",
+    deviceAlt: "Vefsíða Sveinssons sýnd á fartölvu og snjallsíma",
     features: [
       { title: "Hröð Afhending", subtitle: "Skýr tímalína og áreiðanleg afhending" },
       { title: "Sérsmíðað", subtitle: "Hannað sérstaklega fyrir þitt vörumerki" },
@@ -658,7 +665,7 @@ const is: Translations = {
     titleLine1: "Byggt fyrir",
     titleHighlight: "Fyrirtækið Þitt",
     description:
-      "Á bak við hverja Sveinssons vefsíðu er eitt markmið: láta fyrirtækið þitt líta jafn vel út á netinu og í raunveruleikanum. Sérsniðin hönnun, sérsniðin þróun, engin sniðmát. Staðsett á Íslandi, við vinnum á íslensku og ensku.",
+      "Á bak við hverja Sveinssons vefsíðu er eitt markmið: láta fyrirtækið þitt líta jafn vel út á netinu og í raunveruleikanum. Sérsniðin hönnun, sérsniðin þróun, engin sniðmát. Ertu að leita að vefforritara eða vefhönnuði á Íslandi? Sveinssons hannar og þróar sérsniðnar vefsíður fyrir fyrirtæki á Íslandi og viðskiptavini erlendis.",
   },
   services: {
     eyebrow: "Þjónustan okkar",
@@ -697,6 +704,7 @@ const is: Translations = {
           "Vefsíða fyrir sálfræðistofu. Hlý litaskiptahönnun, á spænsku, þjónusta fyrir unglinga, fullorðna og pör, í eigin persónu og á netinu.",
         liveUrl: "https://travesiainternapsicologia.com",
         image: "/images/website1.png",
+        imageAlt: "Skjáskot af vefsíðunni Julieta Banco — Psicología",
         tags: ["Sálfræði", "Spænska", "Skalanleg"],
       },
       {
@@ -705,6 +713,7 @@ const is: Translations = {
           "Vefsíða fyrir lækni í samþættri læknisfræði og verkjameðferð, hönnuð til að kynna þjónustu skýrt og leiða notendur að fyrirspurnum um tíma.",
         liveUrl: "https://drnicolascapdevila.netlify.app/",
         image: "/images/website2.png",
+        imageAlt: "Skjáskot af vefsíðunni Dr. Nicolás Capdevila",
         tags: ["Læknisfræði", "Spænska", "Skalanleg"],
       },
     ],

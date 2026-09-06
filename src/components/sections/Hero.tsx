@@ -52,7 +52,7 @@ export function Hero() {
         </div>
 
         <div className="hidden min-w-0 xl:block">
-          <HeroDeviceMockup lang={lang} />
+          <HeroDeviceMockup lang={lang} alt={t.hero.deviceAlt} />
         </div>
       </div>
     </section>
