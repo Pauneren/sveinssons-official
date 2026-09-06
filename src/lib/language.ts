@@ -32,11 +32,28 @@ export const SERVICE_PAGE_PATH = {
   en: "/en/website-development/",
 } as const;
 
+export const PROJECT_PAGE_PATH = {
+  "julieta-banco": {
+    is: "/verk/julieta-banco/",
+    en: "/en/work/julieta-banco/",
+  },
+  "nicolas-capdevila": {
+    is: "/verk/nicolas-capdevila/",
+    en: "/en/work/nicolas-capdevila/",
+  },
+} as const;
+
+export type ProjectSlug = keyof typeof PROJECT_PAGE_PATH;
+
 const PATH_ALTERNATES: Record<string, Record<PublicLanguage, string>> = {
   "/": { is: "/", en: "/en/" },
   "/en": { is: "/", en: "/en/" },
   "/vefsidugerd": { is: SERVICE_PAGE_PATH.is, en: SERVICE_PAGE_PATH.en },
   "/en/website-development": { is: SERVICE_PAGE_PATH.is, en: SERVICE_PAGE_PATH.en },
+  "/verk/julieta-banco": PROJECT_PAGE_PATH["julieta-banco"],
+  "/en/work/julieta-banco": PROJECT_PAGE_PATH["julieta-banco"],
+  "/verk/nicolas-capdevila": PROJECT_PAGE_PATH["nicolas-capdevila"],
+  "/en/work/nicolas-capdevila": PROJECT_PAGE_PATH["nicolas-capdevila"],
 };
 
 export function localePath(lang: PublicLanguage): "/" | "/en/" {

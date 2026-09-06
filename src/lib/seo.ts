@@ -76,20 +76,26 @@ export function createPageMetadata({
   title,
   description,
   languages,
+  image,
+  imageAlt,
 }: {
   lang: PublicLanguage;
   path: string;
   title: string;
   description: string;
   languages: { is: string; en: string; "x-default": string };
+  image?: string;
+  imageAlt?: string;
 }): Metadata {
   const icelandic = lang === "is";
-  const socialImage = icelandic
-    ? "/images/hero-devices-is-aligned.png"
-    : "/images/hero-devices-en.png";
-  const socialImageAlt = icelandic
-    ? "Vefsíða Sveinssons sýnd á fartölvu og snjallsíma"
-    : "Sveinssons website shown on a laptop and smartphone";
+  const socialImage =
+    image ??
+    (icelandic ? "/images/hero-devices-is-aligned.png" : "/images/hero-devices-en.png");
+  const socialImageAlt =
+    imageAlt ??
+    (icelandic
+      ? "Vefsíða Sveinssons sýnd á fartölvu og snjallsíma"
+      : "Sveinssons website shown on a laptop and smartphone");
 
   return {
     title: { absolute: title },

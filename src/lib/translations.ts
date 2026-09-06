@@ -75,8 +75,10 @@ const en = {
     cardTitle: "Coming Soon",
     cardDescription: "Project details coming soon.",
     liveSiteLabel: "View live site",
+    caseStudyLabel: "View project",
     projects: [
       {
+        slug: "julieta-banco" as const,
         title: "Julieta Banco — Psicología",
         description:
           "Psychology practice website. Warm gradient design, Spanish language, services for adolescents, adults and couples, in-person and online.",
@@ -86,6 +88,7 @@ const en = {
         tags: ["Psychology", "Spanish", "Responsive"],
       },
       {
+        slug: "nicolas-capdevila" as const,
         title: "Dr. Nicolás Capdevila",
         description:
           "Medical website for an integrative medicine and pain-management doctor, designed to present services clearly and guide patients toward appointment enquiries.",
@@ -390,8 +393,10 @@ const es: Translations = {
     cardTitle: "Próximamente",
     cardDescription: "Detalles del proyecto próximamente.",
     liveSiteLabel: "Ver sitio en vivo",
+    caseStudyLabel: "Ver el proyecto",
     projects: [
       {
+        slug: "julieta-banco" as const,
         title: "Julieta Banco — Psicología",
         description:
           "Sitio web de consulta de psicología. Diseño con degradado cálido, en español, servicios para adolescentes, adultos y parejas, presenciales y en línea.",
@@ -401,6 +406,7 @@ const es: Translations = {
         tags: ["Psicología", "Español", "Adaptable"],
       },
       {
+        slug: "nicolas-capdevila" as const,
         title: "Dr. Nicolás Capdevila",
         description:
           "Sitio web médico para un especialista en medicina integrativa y manejo del dolor, diseñado para presentar los servicios con claridad y guiar a los pacientes hacia consultas de cita.",
@@ -697,8 +703,10 @@ const is: Translations = {
     cardTitle: "Væntanlegt",
     cardDescription: "Upplýsingar um verkefnið væntanlegar.",
     liveSiteLabel: "Skoða lifandi síðu",
+    caseStudyLabel: "Skoða verkefni",
     projects: [
       {
+        slug: "julieta-banco" as const,
         title: "Julieta Banco — Psicología",
         description:
           "Vefsíða fyrir sálfræðistofu. Hlý litaskiptahönnun, á spænsku, þjónusta fyrir unglinga, fullorðna og pör, í eigin persónu og á netinu.",
@@ -708,6 +716,7 @@ const is: Translations = {
         tags: ["Sálfræði", "Spænska", "Skalanleg"],
       },
       {
+        slug: "nicolas-capdevila" as const,
         title: "Dr. Nicolás Capdevila",
         description:
           "Vefsíða fyrir lækni í samþættri læknisfræði og verkjameðferð, hönnuð til að kynna þjónustu skýrt og leiða notendur að fyrirspurnum um tíma.",
