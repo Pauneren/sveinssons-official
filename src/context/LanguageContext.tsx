@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useMemo } from "react";
 
 import {
-  localePath,
+  localeAlternateHref,
   type PublicLanguage,
   writeLanguageCookie,
 } from "@/lib/language";
@@ -30,7 +30,9 @@ export function LanguageProvider({
     (next: PublicLanguage) => {
       writeLanguageCookie(next);
       if (next === lang) return;
-      window.location.assign(`${localePath(next)}${window.location.hash}`);
+      window.location.assign(
+        localeAlternateHref(next, window.location.pathname, window.location.hash),
+      );
     },
     [lang],
   );

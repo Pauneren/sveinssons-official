@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 
+import { usePathname } from "next/navigation";
+
 import { useLanguage } from "@/context/LanguageContext";
-import { localeHref, type PublicLanguage, writeLanguageCookie } from "@/lib/language";
+import { localeAlternateHref, type PublicLanguage, writeLanguageCookie } from "@/lib/language";
 
 const options: { value: PublicLanguage; label: string }[] = [
   { value: "en", label: "EN" },
@@ -12,6 +14,7 @@ const options: { value: PublicLanguage; label: string }[] = [
 
 export function LanguageToggle() {
   const { lang } = useLanguage();
+  const pathname = usePathname();
   const [hash, setHash] = useState("");
 
   useEffect(() => {
@@ -28,7 +31,7 @@ export function LanguageToggle() {
         return (
           <a
             key={value}
-            href={localeHref(value, hash)}
+            href={localeAlternateHref(value, pathname, hash)}
             aria-current={active ? "true" : undefined}
             onClick={(event) => {
               writeLanguageCookie(value);

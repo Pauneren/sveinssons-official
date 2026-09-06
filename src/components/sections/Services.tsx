@@ -3,11 +3,12 @@
 import { BagIcon, HexagonIcon, LayoutIcon } from "@/components/icons";
 import { EyebrowBadge } from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
+import { SERVICE_PAGE_PATH } from "@/lib/language";
 
 const serviceIcons = [LayoutIcon, HexagonIcon, BagIcon];
 
 export function Services() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section id="services" className="py-12 lg:py-16">
@@ -30,6 +31,12 @@ export function Services() {
             <p className="text-sm leading-relaxed text-zinc-400 sm:text-base">
               {t.services.description}
             </p>
+            <a
+              href={SERVICE_PAGE_PATH[lang]}
+              className="text-sm font-medium text-[#a78bfa] transition-colors hover:text-white"
+            >
+              {lang === "is" ? "Lesa meira um vefsíðugerð" : "Learn more about website development"}
+            </a>
           </div>
 
           <ul className="grid gap-5 md:grid-cols-3">

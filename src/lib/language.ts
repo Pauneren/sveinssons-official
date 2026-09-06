@@ -27,12 +27,31 @@ export function languageFromPathname(pathname: string): PublicLanguage {
   return normalized === "/en" || normalized.startsWith("/en/") ? "en" : "is";
 }
 
+export const SERVICE_PAGE_PATH = {
+  is: "/vefsidugerd/",
+  en: "/en/website-development/",
+} as const;
+
+const PATH_ALTERNATES: Record<string, Record<PublicLanguage, string>> = {
+  "/": { is: "/", en: "/en/" },
+  "/en": { is: "/", en: "/en/" },
+  "/vefsidugerd": { is: SERVICE_PAGE_PATH.is, en: SERVICE_PAGE_PATH.en },
+  "/en/website-development": { is: SERVICE_PAGE_PATH.is, en: SERVICE_PAGE_PATH.en },
+};
+
 export function localePath(lang: PublicLanguage): "/" | "/en/" {
   return lang === "en" ? "/en/" : "/";
 }
 
 export function localeHref(lang: PublicLanguage, hash = ""): string {
   const path = localePath(lang);
+  if (!hash || hash === "#") return path;
+  return `${path}${hash.startsWith("#") ? hash : `#${hash}`}`;
+}
+
+export function localeAlternateHref(lang: PublicLanguage, pathname: string, hash = ""): string {
+  const normalized = pathname.replace(/\/+$/, "") || "/";
+  const path = PATH_ALTERNATES[normalized]?.[lang] ?? localePath(lang);
   if (!hash || hash === "#") return path;
   return `${path}${hash.startsWith("#") ? hash : `#${hash}`}`;
 }

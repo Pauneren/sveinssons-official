@@ -2,10 +2,12 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 
+import { usePathname } from "next/navigation";
+
 import { useLanguage } from "@/context/LanguageContext";
 import {
   isPublicLanguage,
-  localeHref,
+  localeAlternateHref,
   type PublicLanguage,
   readLanguageCookie,
   writeLanguageCookie,
@@ -56,6 +58,7 @@ async function fetchCountryPreference(): Promise<PublicLanguage | null> {
 
 export function LanguageSuggestion() {
   const { lang } = useLanguage();
+  const pathname = usePathname();
   const isClient = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -99,7 +102,7 @@ export function LanguageSuggestion() {
       <div className="pointer-events-auto flex max-w-[min(28rem,calc(100vw-2rem))] flex-wrap items-center justify-end gap-2 rounded-2xl border border-white/10 bg-[#050508]/95 px-4 py-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-md sm:flex-nowrap sm:rounded-full sm:py-2">
         <p className="mr-auto min-w-0 text-sm text-zinc-200">{text.message}</p>
         <a
-          href={localeHref(target, hash)}
+          href={localeAlternateHref(target, pathname, hash)}
           onClick={() => writeLanguageCookie(target)}
           className="shrink-0 rounded-full bg-[#7c3aed] px-3 py-1 text-xs font-semibold text-white transition-colors hover:bg-[#6d28d9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c3aed]"
         >

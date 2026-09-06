@@ -63,3 +63,56 @@ export function createLocaleMetadata(lang: PublicLanguage): Metadata {
     },
   };
 }
+
+export const servicePageHreflang = {
+  is: "/vefsidugerd/",
+  en: "/en/website-development/",
+  "x-default": "/en/website-development/",
+} as const;
+
+export function createPageMetadata({
+  lang,
+  path,
+  title,
+  description,
+  languages,
+}: {
+  lang: PublicLanguage;
+  path: string;
+  title: string;
+  description: string;
+  languages: { is: string; en: string; "x-default": string };
+}): Metadata {
+  const icelandic = lang === "is";
+  const socialImage = icelandic
+    ? "/images/hero-devices-is-aligned.png"
+    : "/images/hero-devices-en.png";
+  const socialImageAlt = icelandic
+    ? "Vefsíða Sveinssons sýnd á fartölvu og snjallsíma"
+    : "Sveinssons website shown on a laptop and smartphone";
+
+  return {
+    title: { absolute: title },
+    description,
+    alternates: {
+      canonical: path,
+      languages,
+    },
+    openGraph: {
+      type: "website",
+      siteName: siteConfig.name,
+      title,
+      description,
+      url: path,
+      locale: icelandic ? "is_IS" : "en_US",
+      alternateLocale: icelandic ? ["en_US"] : ["is_IS"],
+      images: [{ url: socialImage, alt: socialImageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [socialImage],
+    },
+  };
+}
