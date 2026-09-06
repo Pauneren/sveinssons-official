@@ -272,9 +272,12 @@ const en = {
     submitting: "Sending...",
     genericError: "Something went wrong. Please try again.",
     networkError: "Unable to send your message right now. Please try again shortly.",
+    invalidError: "Please check the form and try again.",
+    rateLimited: "Please wait before sending another message.",
     successTitle: "Message sent",
     successBody: "Thank you. We received your project request and will be in touch soon.",
     sendAnother: "Send another message",
+    privacyLabel: "I agree that Sveinssons may contact me about this enquiry",
     consent:
       "By sending this message, you agree that Sveinssons may contact you about your enquiry.",
     // value = canonical English (what the API validates against); label = displayed text.
@@ -590,10 +593,13 @@ const es: Translations = {
     submitting: "Enviando...",
     genericError: "Algo salió mal. Inténtalo de nuevo.",
     networkError: "No se puede enviar tu mensaje en este momento. Inténtalo de nuevo en breve.",
+    invalidError: "Revisa el formulario e inténtalo de nuevo.",
+    rateLimited: "Espera antes de enviar otro mensaje.",
     successTitle: "Mensaje enviado",
     successBody:
       "Gracias. Hemos recibido tu solicitud de proyecto y nos pondremos en contacto pronto.",
     sendAnother: "Enviar otro mensaje",
+    privacyLabel: "Acepto que Sveinssons pueda contactarme sobre esta consulta",
     consent:
       "Al enviar este mensaje, aceptas que Sveinssons pueda contactarte sobre tu consulta.",
     projectTypes: [
@@ -900,9 +906,12 @@ const is: Translations = {
     submitting: "Sendi...",
     genericError: "Eitthvað fór úrskeiðis. Vinsamlegast reyndu aftur.",
     networkError: "Ekki tókst að senda skilaboðin núna. Vinsamlegast reyndu aftur fljótlega.",
+    invalidError: "Vinsamlegast athugaðu eyðublaðið og reyndu aftur.",
+    rateLimited: "Vinsamlegast bíddu áður en þú sendir önnur skilaboð.",
     successTitle: "Skilaboð send",
     successBody: "Takk fyrir. Við fengum verkefnabeiðnina þína og verðum í sambandi fljótlega.",
     sendAnother: "Senda önnur skilaboð",
+    privacyLabel: "Ég samþykki að Sveinssons megi hafa samband við mig vegna þessarar fyrirspurnar",
     consent:
       "Með því að senda þessi skilaboð samþykkir þú að Sveinssons megi hafa samband við þig vegna fyrirspurnar þinnar.",
     projectTypes: [

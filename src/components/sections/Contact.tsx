@@ -1,10 +1,14 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 
-import { sendEmail } from "@/app/actions/sendEmail";
 import { EyebrowBadge } from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  fetchContactToken,
+  submitContact,
+  type ContactPublicError,
+} from "@/lib/form-kit/client";
 
 const fieldClass =
   "w-full rounded-xl border border-white/10 bg-[#050508] px-4 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 transition-colors focus:border-[#7c3aed]/50 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]/25";
@@ -51,23 +55,133 @@ function Field({
   );
 }
 
+function readField(form: FormData, key: string): string {
+  const value = form.get(key);
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function readRawField(form: FormData, key: string): string {
+  const value = form.get(key);
+  return typeof value === "string" ? value : "";
+}
+
+/** Mirrors the minimum completion time the API enforces server-side. */
+const MIN_COMPLETION_MS = 3000;
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 function QuoteForm() {
   const { t } = useLanguage();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorCode, setErrorCode] = useState<ContactPublicError>("invalid");
+  const tokenRef = useRef<string | null>(null);
+  const tokenReceivedAtRef = useRef<number | null>(null);
+  const tokenRequestRef = useRef<Promise<string | null> | null>(null);
+  const submittingRef = useRef(false);
+
+  const acquireToken = useCallback(async (): Promise<string | null> => {
+    if (tokenRef.current) {
+      return tokenRef.current;
+    }
+    if (tokenRequestRef.current) {
+      return tokenRequestRef.current;
+    }
+
+    const request = fetchContactToken().then((token) => {
+      tokenRef.current = token;
+      // Monotonic mark: the minimum completion window starts when the browser receives the token.
+      tokenReceivedAtRef.current = token ? performance.now() : null;
+      if (tokenRequestRef.current === request) {
+        tokenRequestRef.current = null;
+      }
+      return token;
+    });
+    tokenRequestRef.current = request;
+    return request;
+  }, []);
+
+  useEffect(() => {
+    void acquireToken();
+  }, [acquireToken]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submittingRef.current) {
+      return;
+    }
     const form = event.currentTarget;
+    const formData = new FormData(form);
+    const privacy = (form.elements.namedItem("privacy") as HTMLInputElement | null)?.checked === true;
+
+    if (
+      !privacy ||
+      !readField(formData, "name") ||
+      !readField(formData, "email") ||
+      !readField(formData, "projectType") ||
+      !readField(formData, "projectDetails")
+    ) {
+      setErrorCode("invalid");
+      setStatus("error");
+      return;
+    }
+
+    submittingRef.current = true;
     setStatus("submitting");
 
-    const result = await sendEmail(new FormData(form));
-
-    if (result.success) {
-      form.reset();
-      setStatus("success");
-    } else {
+    const token = await acquireToken();
+    if (!token) {
+      submittingRef.current = false;
+      setErrorCode("unavailable");
       setStatus("error");
+      return;
     }
+
+    // Stay in the submitting state until the token is old enough for the server's
+    // minimum completion time, so fast, autofilled or assisted submissions are not
+    // rejected as invalid.
+    const receivedAt = tokenReceivedAtRef.current;
+    const remaining =
+      receivedAt === null
+        ? MIN_COMPLETION_MS
+        : MIN_COMPLETION_MS - (performance.now() - receivedAt);
+    if (remaining > 0) {
+      await delay(remaining);
+    }
+
+    const result = await submitContact({
+      token,
+      companyWebsite: readRawField(formData, "companyWebsite"),
+      name: readField(formData, "name"),
+      email: readField(formData, "email"),
+      phone: readField(formData, "phone"),
+      businessName: readField(formData, "businessName"),
+      projectType: readField(formData, "projectType"),
+      language: readField(formData, "language"),
+      timeline: readField(formData, "timeline"),
+      budgetRange: readField(formData, "budgetRange"),
+      projectDetails: readField(formData, "projectDetails"),
+      privacy,
+    });
+
+    tokenRef.current = null;
+    tokenReceivedAtRef.current = null;
+    tokenRequestRef.current = null;
+
+    if (result.ok) {
+      form.reset();
+      submittingRef.current = false;
+      setStatus("success");
+      return;
+    }
+
+    await acquireToken();
+    submittingRef.current = false;
+    setErrorCode(result.error);
+    setStatus("error");
   }
 
   if (status === "success") {
@@ -213,12 +327,30 @@ function QuoteForm() {
         />
       </Field>
 
+      <label htmlFor="privacy" className="flex items-start gap-3 text-sm leading-relaxed text-zinc-300">
+        <input
+          id="privacy"
+          name="privacy"
+          type="checkbox"
+          required
+          className="mt-1 h-4 w-4 shrink-0 rounded border-white/20 bg-[#050508] accent-[#7c3aed] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]/25"
+        />
+        <span>
+          {t.form.privacyLabel}
+          <span className="text-[#a78bfa]"> *</span>
+        </span>
+      </label>
+
       {status === "error" ? (
         <p
           className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200"
           role="alert"
         >
-          {t.form.genericError}
+          {errorCode === "rate_limited"
+            ? t.form.rateLimited
+            : errorCode === "unavailable"
+              ? t.form.networkError
+              : t.form.invalidError}
         </p>
       ) : null}
 
@@ -229,8 +361,6 @@ function QuoteForm() {
       >
         {status === "submitting" ? t.form.submitting : t.form.submit}
       </button>
-
-      <p className="text-xs leading-relaxed text-white/45">{t.form.consent}</p>
     </form>
   );
 }
