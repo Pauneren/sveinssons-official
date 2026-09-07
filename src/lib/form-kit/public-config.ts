@@ -9,7 +9,8 @@ export const publicFormConfig: PublicFormConfig = parsePublicFormConfig({
   confirmationText: "Thank you. We received your project request and will be in touch soon.",
   submitLabel: "Send project request",
   replyToFieldId: "email",
-  honeypotFieldName: "companyWebsite",
+  // Neutral name: avoid company/website/fax autofill heuristics.
+  honeypotFieldName: "contactReference",
   fields: [
     {
       id: "name",

@@ -5,7 +5,7 @@ export type ContactPublicError = "invalid" | "rate_limited" | "unavailable";
 
 export type ContactPayload = {
   token: string;
-  companyWebsite: string;
+  contactReference: string;
   name: string;
   email: string;
   phone: string;

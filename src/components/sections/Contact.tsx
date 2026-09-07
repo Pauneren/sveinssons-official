@@ -154,7 +154,7 @@ function QuoteForm() {
 
     const result = await submitContact({
       token,
-      companyWebsite: readRawField(formData, "companyWebsite"),
+      contactReference: readRawField(formData, "contactReference"),
       name: readField(formData, "name"),
       email: readField(formData, "email"),
       phone: readField(formData, "phone"),
@@ -206,13 +206,15 @@ function QuoteForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
       <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden>
-        <label htmlFor="companyWebsite">{t.form.companyWebsiteLabel}</label>
+        <label htmlFor="contactReference">Reference</label>
         <input
-          id="companyWebsite"
-          name="companyWebsite"
+          id="contactReference"
+          name="contactReference"
           type="text"
           tabIndex={-1}
           autoComplete="off"
+          data-lpignore="true"
+          data-1p-ignore="true"
         />
       </div>
 
