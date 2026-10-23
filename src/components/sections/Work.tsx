@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { EyebrowBadge } from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
-import { PROJECT_PAGE_PATH } from "@/lib/language";
+import { PROJECT_PAGE_PATH, type ProjectSlug } from "@/lib/language";
 
 const placeholderCount = 3;
 
@@ -56,12 +56,23 @@ export function Work() {
                   ))}
                 </ul>
               ) : null}
-              <a
-                href={PROJECT_PAGE_PATH[project.slug][lang]}
-                className="mt-auto text-sm font-medium text-[#a78bfa] transition-colors hover:text-[#c4b5fd]"
-              >
-                {t.work.caseStudyLabel}
-              </a>
+              {project.slug in PROJECT_PAGE_PATH ? (
+                <a
+                  href={PROJECT_PAGE_PATH[project.slug as ProjectSlug][lang]}
+                  className="mt-auto text-sm font-medium text-[#a78bfa] transition-colors hover:text-[#c4b5fd]"
+                >
+                  {t.work.caseStudyLabel}
+                </a>
+              ) : project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto text-sm font-medium text-[#a78bfa] transition-colors hover:text-[#c4b5fd]"
+                >
+                  {t.work.liveSiteLabel}
+                </a>
+              ) : null}
             </li>
           ))}
 

@@ -71,7 +71,7 @@ const en = {
     eyebrow: "Our work",
     titleLine1: "Recent Work",
     description:
-      "A selection of projects is on the way. Check back soon to see what we've been building.",
+      "A selection of recent websites we've designed and developed — custom-built for each client.",
     cardTitle: "Coming Soon",
     cardDescription: "Project details coming soon.",
     liveSiteLabel: "View live site",
@@ -96,6 +96,16 @@ const en = {
         image: "/images/website2.png",
         imageAlt: "Screenshot of the Dr. Nicolás Capdevila website",
         tags: ["Medical", "Spanish", "Responsive"],
+      },
+      {
+        slug: "victoria-blackstone" as const,
+        title: "Victoria Blackstone",
+        description:
+          "A bilingual artist website showcasing music, videos, live performances, and press, supported by a custom content management system for easy updates.",
+        liveUrl: "https://victoria-blackstone.vercel.app",
+        image: "/images/victoria-blackstone.webp",
+        imageAlt: "Screenshot of the Victoria Blackstone website",
+        tags: ["Music", "Multilingual", "Custom CMS"],
       },
     ],
   },
@@ -392,7 +402,7 @@ const es: Translations = {
     eyebrow: "Nuestro trabajo",
     titleLine1: "Trabajo Reciente",
     description:
-      "Una selección de proyectos está en camino. Vuelve pronto para ver lo que hemos estado construyendo.",
+      "Una selección de sitios web recientes que hemos diseñado y desarrollado, creados a medida para cada cliente.",
     cardTitle: "Próximamente",
     cardDescription: "Detalles del proyecto próximamente.",
     liveSiteLabel: "Ver sitio en vivo",
@@ -417,6 +427,16 @@ const es: Translations = {
         image: "/images/website2.png",
         imageAlt: "Captura de pantalla del sitio web Dr. Nicolás Capdevila",
         tags: ["Médico", "Español", "Adaptable"],
+      },
+      {
+        slug: "victoria-blackstone" as const,
+        title: "Victoria Blackstone",
+        description:
+          "Sitio web bilingüe para artista que presenta música, videos, actuaciones en vivo y prensa, con un sistema de gestión de contenidos personalizado.",
+        liveUrl: "https://victoria-blackstone.vercel.app",
+        image: "/images/victoria-blackstone.webp",
+        imageAlt: "Captura de pantalla del sitio web Victoria Blackstone",
+        tags: ["Música", "Multilingüe", "CMS a medida"],
       },
     ],
   },
@@ -705,7 +725,7 @@ const is: Translations = {
     eyebrow: "Verkin okkar",
     titleLine1: "Nýleg Verk",
     description:
-      "Úrval verkefna er á leiðinni. Líttu við fljótlega til að sjá hvað við höfum verið að byggja.",
+      "Úrval nýlegra vefsíðna sem við höfum hannað og þróað — sérsmiðaðar fyrir hvern viðskiptavin.",
     cardTitle: "Væntanlegt",
     cardDescription: "Upplýsingar um verkefnið væntanlegar.",
     liveSiteLabel: "Skoða lifandi síðu",
@@ -730,6 +750,16 @@ const is: Translations = {
         image: "/images/website2.png",
         imageAlt: "Skjáskot af vefsíðunni Dr. Nicolás Capdevila",
         tags: ["Læknisfræði", "Spænska", "Skalanleg"],
+      },
+      {
+        slug: "victoria-blackstone" as const,
+        title: "Victoria Blackstone",
+        description:
+          "Tvítyngdur listamannavefur sem kynnir tónlist, myndbönd, tónleika og fjölmiðlaumfjöllun, með sérsniðnu efnisumsjónarkerfi.",
+        liveUrl: "https://victoria-blackstone.vercel.app",
+        image: "/images/victoria-blackstone.webp",
+        imageAlt: "Skjáskot af vefsíðunni Victoria Blackstone",
+        tags: ["Tónlist", "Fjöltyngt", "Sérsniðið CMS"],
       },
     ],
   },
