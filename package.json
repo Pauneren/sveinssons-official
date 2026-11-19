@@ -12,11 +12,11 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@sveinssons-dev/form-kit-core": "1.0.2",
-    "@sveinssons-dev/form-kit-email": "1.0.2",
-    "@sveinssons-dev/form-kit-redis": "1.0.2",
-    "@sveinssons-dev/form-kit-server": "1.0.2",
-    "@sveinssons-dev/form-kit-vercel": "1.0.2",
+    "@sveinssons-dev/form-kit-core": "2.0.0",
+    "@sveinssons-dev/form-kit-email": "2.0.0",
+    "@sveinssons-dev/form-kit-redis": "2.0.0",
+    "@sveinssons-dev/form-kit-server": "2.0.0",
+    "@sveinssons-dev/form-kit-vercel": "2.0.0",
     "next": "16.2.7",
     "react": "19.2.4",
     "react-dom": "19.2.4",
